@@ -1,14 +1,6 @@
 <?php
 
-    $idioma = $_GET["idioma"] ?? "es";
-
-    $fichero = "$idioma.php";
-
-    require $fichero; //es.php, en.php o ko.php
-
-
 ?>
-
 
 <html>
 
@@ -34,52 +26,6 @@
         text-align: center;
         font-size: 2.5rem;
         margin-bottom: 30px;
-    }
-
-    .login-form {
-        background-color: white;
-        padding: 40px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 400px;
-        text-align: center;
-    }
-
-    .login-form input {
-        width: 100%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-
-    .login-form button {
-        width: 100%;
-        padding: 10px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .login-form button:hover {
-        background-color: #0056b3;
-    }
-
-    .login-form .form-group {
-        margin-bottom: 15px;
-    }
-
-    .login-form .text-center a {
-        color: #007bff;
-        text-decoration: none;
-    }
-
-    .login-form .text-center a:hover {
-        text-decoration: underline;
     }
 
     /* Estilos para los botones de las banderas */
@@ -117,15 +63,13 @@
         <a href="?idioma=ko"><img src="https://cdn-icons-png.flaticon.com/128/5111/5111586.png" alt="Coreano" title="Coreano"></a>
     </div>
 
-    <h1><?= $traducciones["title"] ?></h1>
+    <h1>"titulo_error"</h1>
+    <p>"mensaje_error"</p>
+    <button style="background-color: blue; color: white; padding: 10px 20px; border-radius: 5px;">
+    Botón Estilizado
+</button>
     
-    <div class="login-form">
-        <form action="/login" method="post">
-            <input type="text" id="user" name="user" placeholder="<?= $traducciones["user"] ?>" required>
-            <input type="password" id="password" name="password" placeholder="<?= $traducciones["password"] ?>" required>
-            <button type="submit"><?= $traducciones["login"] ?></button>
-        </form>
-    </div>
+  
 </body>
 
 </html>
