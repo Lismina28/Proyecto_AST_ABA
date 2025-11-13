@@ -106,6 +106,8 @@
         <img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="Español" title="Español" onclick="cambiarIdioma('es')">
         <!-- Bandera de Reino Unido (SVG de Flaticon) -->
         <img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="English" title="English" onclick="cambiarIdioma('en')">
+        <!-- Bandera de Corea (SVG de Flaticon) -->
+        <img src="https://cdn-icons-png.flaticon.com/128/5111/5111586.png" alt="Coreano" title="Coreano" onclick="cambiarIdioma('ko')">
     </div>
 
     <h1>Page title</h1>
