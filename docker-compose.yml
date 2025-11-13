@@ -5,7 +5,8 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - "C:/Users/Lismi/Desktop/Ejercicios/Ejercicios IAPWE/Proyecto_AST_ABA/src:/var/www/html"
+      - "C:/Users/Tarde/Desktop/Alba/Proyecto IAPWE 1/Proyecto_AST_ABA/src:/var/www/html"
+      - "C:/Users/Lismi/Desktop/Ejercicios/Ejercicios IAPWE/Proyecto_AST_ABA/src:/var/www/html" 
   
   bbdd:
     image: mysql:5.7
