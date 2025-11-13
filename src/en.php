@@ -1,8 +1,10 @@
 <?php
 
     $traducciones = [
-        "titulo" => "Tittle",
-        "nombre" => "Name"
+        "title" => "Title",
+        "user" => "User",
+        "login" => "Login",
+        "password" => "Password"
     ];
 
 ?>

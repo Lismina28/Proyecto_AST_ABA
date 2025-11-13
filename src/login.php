@@ -1,10 +1,10 @@
 <?php
 
-    $idioma = $_GET["idioma"] ?? "";
+    $idioma = $_GET["idioma"] ?? "es";
 
     $fichero = "$idioma.php";
 
-    require $fichero; //es.php o en.php
+    require $fichero; //es.php, en.php o ko.php
 
 
 ?>
@@ -108,23 +108,22 @@
 
 <body>
     <!-- Botones de idioma en la esquina superior derecha usando iconos de Flaticon -->
-    <p><?= $traducciones["nombre"] ?></p>
     <div class="language-buttons">
         <!-- Bandera de España (SVG de Flaticon) -->
-        <a href="?idioma=es"><img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="Español" title="Español"></a>
+        <a href="?idioma=en"><img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="English" title="English"></a>
         <!-- Bandera de Reino Unido (SVG de Flaticon) -->
-        <img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="English" title="English" onclick="cambiarIdioma('en')">
+        <a href="?idioma=es"><img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="Español" title="Español">
         <!-- Bandera de Corea (SVG de Flaticon) -->
-        <img src="https://cdn-icons-png.flaticon.com/128/5111/5111586.png" alt="Coreano" title="Coreano" onclick="cambiarIdioma('ko')">
+        <a href="?idioma=ko"><img src="https://cdn-icons-png.flaticon.com/128/5111/5111586.png" alt="Coreano" title="Coreano">
     </div>
 
-    <h1>Page title</h1>
+    <h1><?= $traducciones["title"] ?></h1>
     
     <div class="login-form">
         <form action="/login" method="post">
-            <input type="text" id="user" name="user" placeholder="User" required>
-            <input type="password" id="password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
+            <input type="text" id="user" name="user" placeholder="<?= $traducciones["user"] ?>" required>
+            <input type="password" id="password" name="password" placeholder="<?= $traducciones["password"] ?>" required>
+            <button type="submit"><?= $traducciones["login"] ?></button>
         </form>
     </div>
 </body>
