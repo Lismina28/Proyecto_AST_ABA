@@ -1,7 +1,7 @@
 <?php
 
     $traducciones = [
-        "titulo" => "Titte",
+        "titulo" => "Tittle",
         "nombre" => "Name"
     ];
 
