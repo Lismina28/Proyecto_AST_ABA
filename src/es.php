@@ -3,7 +3,7 @@
     $traducciones = [
         "title" => "Título",
         "user" => "Usuario",
-        "login" => "Inicar sesión",
+        "login" => "Iniciar sesión",
         "password" => "Contraseña"
     ];
 
