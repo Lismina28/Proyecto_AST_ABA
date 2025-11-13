@@ -1,5 +1,12 @@
 <?php
 
+    $idioma = $_GET["idioma"] ?? "";
+
+    $fichero = "$idioma.php";
+
+    require $fichero; //es.php o en.php
+
+
 ?>
 
 
@@ -101,11 +108,12 @@
 
 <body>
     <!-- Botones de idioma en la esquina superior derecha usando iconos de Flaticon -->
+    <p><?= $traducciones["nombre"] ?></p>
     <div class="language-buttons">
         <!-- Bandera de España (SVG de Flaticon) -->
-        <img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="Español" title="Español" onclick="cambiarIdioma('es')">
+        <a href="?idioma=es"><img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="Español" title="Español"></a>
         <!-- Bandera de Reino Unido (SVG de Flaticon) -->
-        <img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="English" title="English" onclick="cambiarIdioma('en')">
+        <a href="?idioma=en"><img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="English" title="English"></a>
     </div>
 
     <h1>Page title</h1>
