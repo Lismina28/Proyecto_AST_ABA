@@ -1,11 +1,40 @@
 <?php
 
-    $idioma = $_GET["idioma"] ?? "es";
+    session_start();
+    define('max_attemps', 3); //número máximo de intentos de inicio de sesión
+
+    $idioma = $_GET["idioma"] ?? $_SESSION["idioma"];
 
     $fichero = "$idioma.php";
 
+    $_SESSION["idioma"] = $idioma;
+
     require $fichero; //es.php, en.php o ko.php
 
+    if (isset($_POST["submit"])) {
+
+    $usuario_correcto = "admin";
+    $contraseña_correcta = "1234";
+
+    $usuario = $_POST["user"] ?? "";
+    $contraseña = $_POST["password"] ?? "";
+
+        if($usuario == $usuario_correcto && $contraseña == $contraseña_correcta){
+            header("Location: home.php");
+            exit;
+        } else {
+            if(!isset($_POST['submit'])) {
+                $_SESSION['attempts'] = 0; //inicializa los intentos de sesión
+            }
+            $_SESSION['attempts']++; //incrementa si son incorrectos los datos
+
+            if($_SESSION['attempts'] >= max_attemps) {
+                header("Location: login_error.php");
+                exit;
+            }
+        }
+
+    }
 
 ?>
 
@@ -27,7 +56,8 @@
         height: 100vh;
         margin: 0;
         flex-direction: column;
-        position: relative; /* Esto permitirá que los botones estén posicionados en la esquina */
+        position: relative;
+        /* Esto permitirá que los botones estén posicionados en la esquina */
     }
 
     h1 {
@@ -92,7 +122,8 @@
     }
 
     .language-buttons img {
-        width: 40px; /* Tamaño de las banderas */
+        width: 40px;
+        /* Tamaño de las banderas */
         height: auto;
         cursor: pointer;
         border-radius: 4px;
@@ -100,9 +131,9 @@
     }
 
     .language-buttons img:hover {
-        transform: scale(1.1); /* Efecto de hover */
+        transform: scale(1.1);
+        /* Efecto de hover */
     }
-
     </style>
 </head>
 
@@ -110,19 +141,23 @@
     <!-- Botones de idioma en la esquina superior derecha usando iconos de Flaticon -->
     <div class="language-buttons">
         <!-- Bandera de España (SVG de Flaticon) -->
-        <a href="?idioma=en"><img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="English" title="English"></a>
+        <a href="?idioma=en"><img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="English"
+                title="English"></a>
         <!-- Bandera de Reino Unido (SVG de Flaticon) -->
-        <a href="?idioma=es"><img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="Español" title="Español"></a>
+        <a href="?idioma=es"><img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="Español"
+                title="Español"></a>
         <!-- Bandera de Corea (SVG de Flaticon) -->
-        <a href="?idioma=ko"><img src="https://cdn-icons-png.flaticon.com/128/5111/5111586.png" alt="Coreano" title="Coreano"></a>
+        <a href="?idioma=ko"><img src="https://cdn-icons-png.flaticon.com/128/5111/5111586.png" alt="Coreano"
+                title="Coreano"></a>
     </div>
 
     <h1><?= $traducciones["title"] ?></h1>
-    
+
     <div class="login-form">
-        <form action="/login" method="post">
+        <form method="post">
             <input type="text" id="user" name="user" placeholder="<?= $traducciones["user"] ?>" required>
-            <input type="password" id="password" name="password" placeholder="<?= $traducciones["password"] ?>" required>
+            <input type="password" id="password" name="password" placeholder="<?= $traducciones["password"] ?>"
+                required>
             <button type="submit"><?= $traducciones["login"] ?></button>
         </form>
     </div>

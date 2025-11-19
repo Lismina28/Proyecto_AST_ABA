@@ -1,7 +1,11 @@
 <?php
-    $idioma = $_GET["idioma"] ?? "es";
+    session_start();
+    
+    $idioma = $_GET["idioma"] ?? $_SESSION["idioma"];
 
     $fichero = "$idioma.php";
+
+    $_SESSION["idioma"] = $idioma;
 
     require $fichero; //es.php, en.php o ko.php
 
