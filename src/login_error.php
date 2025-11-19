@@ -1,4 +1,9 @@
 <?php
+    $idioma = $_GET["idioma"] ?? "es";
+
+    $fichero = "$idioma.php";
+
+    require $fichero; //es.php, en.php o ko.php
 
 ?>
 
@@ -19,13 +24,24 @@
         height: 100vh;
         margin: 0;
         flex-direction: column;
-        position: relative; /* Esto permitirá que los botones estén posicionados en la esquina */
+        position: relative;
+        /* Esto permitirá que los botones estén posicionados en la esquina */
     }
 
     h1 {
         text-align: center;
         font-size: 2.5rem;
         margin-bottom: 30px;
+    }
+
+    button {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
     }
 
     /* Estilos para los botones de las banderas */
@@ -38,7 +54,8 @@
     }
 
     .language-buttons img {
-        width: 40px; /* Tamaño de las banderas */
+        width: 40px;
+        /* Tamaño de las banderas */
         height: auto;
         cursor: pointer;
         border-radius: 4px;
@@ -46,9 +63,9 @@
     }
 
     .language-buttons img:hover {
-        transform: scale(1.1); /* Efecto de hover */
+        transform: scale(1.1);
+        /* Efecto de hover */
     }
-
     </style>
 </head>
 
@@ -56,20 +73,23 @@
     <!-- Botones de idioma en la esquina superior derecha usando iconos de Flaticon -->
     <div class="language-buttons">
         <!-- Bandera de España (SVG de Flaticon) -->
-        <a href="?idioma=en"><img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="English" title="English"></a>
+        <a href="?idioma=en"><img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="English"
+                title="English"></a>
         <!-- Bandera de Reino Unido (SVG de Flaticon) -->
-        <a href="?idioma=es"><img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="Español" title="Español"></a>
+        <a href="?idioma=es"><img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="Español"
+                title="Español"></a>
         <!-- Bandera de Corea (SVG de Flaticon) -->
-        <a href="?idioma=ko"><img src="https://cdn-icons-png.flaticon.com/128/5111/5111586.png" alt="Coreano" title="Coreano"></a>
+        <a href="?idioma=ko"><img src="https://cdn-icons-png.flaticon.com/128/5111/5111586.png" alt="Coreano"
+                title="Coreano"></a>
     </div>
 
-    <h1>"titulo_error"</h1>
-    <p>"mensaje_error"</p>
-    <button style="background-color: blue; color: white; padding: 10px 20px; border-radius: 5px;">
-    Botón Estilizado
-</button>
-    
-  
+    <h1><?= $traducciones["title_error"] ?></h1>
+    <p><?= $traducciones["error_msg"]?></p>
+    <button onclick="window.location.href='login.php';"><?= $traducciones["return_login"]?>
+
+    </button>
+
+
 </body>
 
 </html>
