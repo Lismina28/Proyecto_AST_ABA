@@ -1,0 +1,145 @@
+<?php
+
+for ($i = 1; $i <= 10; $i++) {
+    $preguntas[$i] = $_POST["pregunta$i"] ?? "";
+}
+
+$pregunta6 = $_POST["pregunta6"] ?? []; // checkbox
+
+// Si alguna pregunta está sin responder, redirigir al formulario
+for ($i = 1; $i <= 10; $i++) {
+    if ($i != 6 && empty($preguntas[$i])) {
+        echo "<h2 style='color:red;'>Error: Faltan respuestas en alguna pregunta.</h2>";
+        echo "<a href='preguntas.php'>Volver al formulario</a>";
+        exit;
+    }
+}
+
+// Pregunta 6, si no hay ninguna opción marcada, redirigir al formulario
+if (empty($pregunta6)) {
+    echo "<h2 style='color:red;'>Error: Debes marcar al menos una opción en la pregunta 6.</h2>";
+    echo "<a href='preguntas.php'>Volver al formulario</a>";
+    exit;
+}
+
+// Corrección
+$contador = 0;
+$total = 10;
+
+if ($preguntas[1] == "ryd") { 
+    $contador += 1; $r1 = "Correcto"; 
+} else { $r1 = "Incorrecto"; 
+}
+
+if ($preguntas[2] == "muerte") {
+    $contador += 1; $r2 = "Correcto"; 
+} else { $r2 = "Incorrecto"; 
+}
+
+if (strtolower(trim($preguntas[3])) == "muerte") { 
+    $contador += 1; $r3 = "Correcto"; 
+} else { $r3 = "Incorrecto"; 
+}
+
+if ($preguntas[4] == "rosado") { 
+    $contador += 1; $r4 = "Correcto"; 
+} else { $r4 = "Incorrecto"; 
+}
+
+if ($preguntas[5] == "sobrevivir") { 
+    $contador += 1; $r5 = "Correcto"; 
+} else { $r5 = "Incorrecto"; }
+
+$correctas6 = ["Hermione", "Navier"];
+if (array_diff($correctas6, $pregunta6) == [] && count($pregunta6) == count($correctas6)) {
+    $contador += 1; 
+    $r6 = "Correcto"; 
+} else { 
+    $r6 = "Incorrecto"; 
+}
+
+if (strtolower(trim($preguntas[7])) == "Yvonne") { 
+    $contador += 1; $r7 = "Correcto"; 
+} else { $r7 = "Incorrecto"; 
+}
+
+if ($preguntas[8] == "eclise") { 
+    $contador += 1; $r8 = "Correcto"; 
+} else { $r8 = "Incorrecto"; 
+}
+
+if ($preguntas[9] == "despierta") { 
+    $contador += 1; $r9 = "Correcto"; 
+} else { $r9 = "Incorrecto"; }
+
+if (strtolower(trim($preguntas[10])) == "eclise") { 
+    $contador += 1; $r10 = "Correcto"; 
+} else { $r10 = "Incorrecto"; 
+}
+
+
+$nota_final = $contador * 1; 
+
+// Mostrar resultados
+echo "<h1>Resultados del cuestionario</h1>";
+echo "<table border='1' cellpadding='8'>
+        <tr>
+            <th>Pregunta</th>
+            <th>Tu respuesta</th>
+            <th>Resultado</th>
+        </tr>
+         <tr>
+            <td>1. Hermanos adoptivos de Penélope</td>
+            <td>{$preguntas[1]}</td>
+            <td>$r1</td>
+        </tr>
+        <tr>
+            <td>2. Dificutad de Penélope</td>
+            <td>{$preguntas[2]}</td>
+            <td>$r2</td>
+        </tr>
+        <tr>
+            <td>3. ¿Qué trata de evitar Penélope?</td>
+            <td>{$preguntas[3]}</td>
+            <td>$r3</td>
+        </tr>
+        <tr>
+            <td>4. Color de pelo de Penélope</td>
+            <td>{$preguntas[4]}</td>
+            <td>$r4</td>
+        </tr>
+        <tr>
+            <td>5. ¿Cuás es su objetivo?</td>
+            <td>{$preguntas[5]}</td>
+            <td>$r5</td>
+        </tr>
+        <tr>
+            <td>6. No es un personaje</td>
+            <td>".implode(", ", $pregunta6)."</td>
+            <td>$r6</td>
+        </tr>
+        <tr>
+            <td>7. Verdadera hija</td>
+            <td>{$preguntas[7]}</td>
+            <td>$r7</td>
+        </tr>
+        <tr>
+            <td>8. Caballero esclavo</td>
+            <td>{$preguntas[8]}</td>
+            <td>$r8</td>
+        </tr>
+        <tr>
+            <td>9. ¿Cómo llega al mundo?</td>
+            <td>{$preguntas[9]}</td>
+            <td>$r9</td>
+        </tr>
+        <tr>
+            <td>10. ¿Quién es obsesivo?</td>
+            <td>{$preguntas[10]}</td>
+            <td>$r10</td>
+        </tr>
+        <tr>
+            <th colspan='2'>Puntuación total</th>
+            <th>$nota_final / $total</th>
+        </tr>
+    </table>";

@@ -11,31 +11,31 @@
     <body>
         <h1>Cuestionario "El unico final de la villana es la muerte"</h1>
       
-    <form action="respuestas_Manhwas.php" method="POST">
+    <form action="resultado.php" method="POST">
 
     
 
         <h2>Preguntas</h2>
 
         <!-- 1 -->
-        <p>1. ¿De qué país proviene este manhwa?</p>
-        <input type="radio" name la protagonist="pregunta1" value="corea">Corea<br>
-        <input type="radio" name="pregunta1" value="españa">España<br>
-        <input type="radio" name="pregunta1" value="china">China<br>
-        <input type="radio" name="pregunta1" value="japón">Japón<br>
+        <p>1. ¿Quién son los dos hermanos adoptivos de Pénelope?</p>
+        <input type="radio" name="pregunta1" value="cyw">Callisto y Winter<br>
+        <input type="radio" name="pregunta1" value="ryd">Reynold y Derrik<br>
+        <input type="radio" name="pregunta1" value="yyl">Yvonne y Laila<br>
+        <input type="radio" name="pregunta1" value="eyk">Eclise y Kaden<br>
 
         <!-- 2 -->
-        <p>2. ¿Qué género describe mejor la obra?</p>
+        <p>2. ¿Cuál es la dificultad principal de Penélope al inicio del manhwa?</p>
         <select name="pregunta2">
             <option>-Seleccionar-</option>
-            <option value="romance">Romance</option>
-            <option value="fantasia">Fantasia</option>
-            <option value="drama">Drama</option>
-            <option value="accion">Acción</option>
+            <option value="recuerdos">No tiene recuerdos</option>
+            <option value="afecto">Sus acciones bajan la barra de afecto</option>
+            <option value="muerte">Cualquier decisión incorrecta puede llevarla a la muerte</option>
+            <option value="hablar">No puede hablar</option>
         </select>
 
         <!-- 3 -->
-        <p>3. ¿Quién es la protagonista?</p>
+        <p>3. ¿Qué trata de evitar Penélope a toda costa?</p>
         <input type="text" name="pregunta3">
 
         <!-- 4 -->
@@ -62,27 +62,30 @@
         <input type="checkbox" name="pregunta6[]" value="Navier"> Navier<br>
 
         <!-- 7 -->
-        <p>7. ¿Cómo se llama la protagonista de “La emperatriz divorciada”?</p>
+        <p>7. ¿Cómo se llama la "verdadera" hija de los Eckhart”?</p>
         <input type="text" name="pregunta7">
 
         <!-- 8 -->
-        <p>8. ¿Cuál es el nombre del emperador en “La emperatriz divorciada”?</p>
-        <input type="radio" name="pregunta8" value="Sovieshu"> Sovieshu<br>
-        <input type="radio" name="pregunta8" value="Claude"> Claude<br>
-        <input type="radio" name="pregunta8" value="Rashta"> Rashta<br>
+        <p>8. ¿Quién es el caballero exclavo que Pénelope intenta salvar”?</p>
+        <input type="radio" name="pregunta8" value="callisto">Callisto<br>
+        <input type="radio" name="pregunta8" value="yvonne">Yvonne<br>
+        <input type="radio" name="pregunta8" value="eclise">Eclise<br>
+        <input type="radio" name="pregunta8" value="kaden">Kaden<br>
 
         <!-- 9 -->
-        <p>9. ¿En qué plataforma se publican muchos manhwas oficialmente?</p>
-        <select name="pregunta9">
+        <p>9. ¿Cómo llega Penélope Eckhart al mundo del juego?</p>
+        <select type="text" name="pregunta9">
             <option>-Seleccionar-</option>
-            <option value="MangaPlus">MangaPlus</option>
-            <option value="Webtoon">Webtoon</option>
-            <option value="Pixiv">Pixiv</option>
+            <option value="muere">Muere en su mundo y reencarna</option>
+            <option value="Absorvida">Es absorvida por un libro</option>
+            <option value="despierta">Se despierta dentro del juego otome</option>
+            <option value="viaja">Viaja por un portal mágico</option>
+            
         </select>
 
         <!-- 10 -->
-        <p>10. ¿En qué año comenzó la serie de “La emperatriz divorciada”?</p>
-        <input type="number" name="pregunta10">
+        <p>10. ¿Qué personaje tiene un comportamiento obsesivo hacia Penélope?</p>
+        <input type="text" name="pregunta10">
 
         <br><br>
         <input type="submit" value="Enviar respuestas">
