@@ -44,20 +44,22 @@
 
     }
 
+    $modo = "claro";
+
 ?>
 
 
-<html>
+<html data-bs-theme="<?php echo ($modo == "claro") ? "light" : "dark" ?>">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <!-- Enlace para los estilos de Bootstrap -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="oscuro.css">-->
     <style>
     body {
-        background-color: #f4f4f4;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -75,7 +77,6 @@
     }
 
     .login-form {
-        background-color: white;
         padding: 40px;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -161,7 +162,7 @@
 
     <h1><?= $traducciones["title"] ?></h1>
 
-    <div class="login-form">
+    <div class="login-form" data-bs-theme="dark">
         <form method="post">
             <input type="text" id="user" name="user" placeholder="<?= $traducciones["user"] ?>" required>
             <input type="password" id="password" name="password" placeholder="<?= $traducciones["password"] ?>"
@@ -169,9 +170,12 @@
             <button type="submit"><?= $traducciones["login"] ?></button>
         </form>
     </div>
-        <?php if($_SESSION["attempts"] < 3): ?>
-            <p><?=$traducciones["remaining_attempts"]?> <?= $_SESSION["attempts"] ?> </p>
-        <?php endif; ?>
+    <?php if($_SESSION["attempts"] < 3): ?>
+    <p><?=$traducciones["remaining_attempts"]?> <?= $_SESSION["attempts"] ?> </p>
+    <?php endif; ?>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

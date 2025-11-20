@@ -9,19 +9,21 @@
 
     require $fichero; //es.php, en.php o ko.php
 
+    $modo = "claro";
+
 ?>
 
-<html>
+<html data-bs-theme="<?php echo ($modo == "claro") ? "light" : "dark" ?>">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <!-- Enlace para los estilos de Bootstrap -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
     body {
-        background-color: #f4f4f4;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -89,10 +91,11 @@
 
     <h1><?= $traducciones["title_error"] ?></h1>
     <p><?= $traducciones["error_msg"]?></p>
-    <button onclick="window.location.href='login.php';"><?= $traducciones["return_login"]?>
+    <button onclick="window.location.href="login.php";"><?= $traducciones["return_login"]?>
 
     </button>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> <!-- Está esto para que funcione lo del modo claro/oscuro -->
 
 </body>
 
