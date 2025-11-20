@@ -1,9 +1,17 @@
 <?php
 
     session_start();
-    define('max_attemps', 3); //número máximo de intentos de inicio de sesión
+    
+    if(!isset($_SESSION["attempts"])){
+        $_SESSION["attempts"] = 3;
+    }
 
-    $idioma = $_GET["idioma"] ?? $_SESSION["idioma"];
+
+    if(isset($_GET["idioma"])){
+        $_SESSION["idioma"] = $_GET["idioma"];
+    }
+
+    $idioma = $_SESSION["idioma"] ?? "es";
 
     $fichero = "$idioma.php";
 
@@ -11,28 +19,28 @@
 
     require $fichero; //es.php, en.php o ko.php
 
-    if (isset($_POST["submit"])) {
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $usuario_correcto = "admin";
-    $contraseña_correcta = "1234";
+        $usuario_correcto = "admin";
+        $contraseña_correcta = "1234";
 
-    $usuario = $_POST["user"] ?? "";
-    $contraseña = $_POST["password"] ?? "";
+        $usuario = $_POST["user"] ?? "";
+        $contraseña = $_POST["password"] ?? "";
 
-        if($usuario == $usuario_correcto && $contraseña == $contraseña_correcta){
-            header("Location: home.php");
-            exit;
-        } else {
-            if(!isset($_POST['submit'])) {
-                $_SESSION['attempts'] = 0; //inicializa los intentos de sesión
-            }
-            $_SESSION['attempts']++; //incrementa si son incorrectos los datos
 
-            if($_SESSION['attempts'] >= max_attemps) {
-                header("Location: login_error.php");
+
+            if($usuario == $usuario_correcto && $contraseña == $contraseña_correcta){
+                header("Location: home.php");
                 exit;
+            } else {
+                $_SESSION["attempts"]--; //incrementa si son incorrectos los datos
+
+                if($_SESSION["attempts"] <= 0) {
+                    $_SESSION["attempts"] = 3;
+                    header("Location: login_error.php");
+                    exit;
+                }
             }
-        }
 
     }
 
@@ -161,6 +169,9 @@
             <button type="submit"><?= $traducciones["login"] ?></button>
         </form>
     </div>
+        <?php if($_SESSION["attempts"] < 3): ?>
+            <p><?=$traducciones["remaining_attempts"]?> <?= $_SESSION["attempts"] ?> </p>
+        <?php endif; ?>
 </body>
 
 </html>

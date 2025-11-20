@@ -7,7 +7,8 @@
         "password" => "Contraseña",
         "title_error" => "Error",
         "error_msg" => "Ha excedido el número permitido de inicios de sesión. &#128542;",
-        "return_login" => "Volver al login"
+        "return_login" => "Volver al login",
+        "remaining_attempts" => "Intentos restantes: "
     ];
 
 ?>
