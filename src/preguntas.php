@@ -1,5 +1,15 @@
 <?php
+ session_start();
+    
+    $idioma = $_GET["idioma"] ?? $_SESSION["idioma"];
 
+    $fichero = "$idioma.php";
+
+    $_SESSION["idioma"] = $idioma;
+
+    require $fichero; //es.php, en.php o ko.php
+
+    $modo = "claro";
 
 ?>
 
@@ -47,7 +57,7 @@
         <!-- 5 -->
         <p>5. ¿Cuál es el objetivo principal de Penelope en la historia?</p>
         <select name="pregunta5">
-            <option></option>
+            <option>-Seleccionar-</option>
             <option value="reina">Convertirse en reina</option>
             <option value="sobrevivir">Sobrevivir en el juego y evitar su muerte</option>
             <option value="venganza">Vengarse de su familia</option>

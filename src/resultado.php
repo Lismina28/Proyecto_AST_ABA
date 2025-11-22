@@ -1,5 +1,17 @@
 <?php
 
+ session_start();
+    
+    $idioma = $_GET["idioma"] ?? $_SESSION["idioma"];
+
+    $fichero = "$idioma.php";
+
+    $_SESSION["idioma"] = $idioma;
+
+    require $fichero; //es.php, en.php o ko.php
+
+    $modo = "claro";
+
 for ($i = 1; $i <= 10; $i++) {
     $preguntas[$i] = $_POST["pregunta$i"] ?? "";
 }
