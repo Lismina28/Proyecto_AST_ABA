@@ -9,96 +9,125 @@
 
     require $fichero; //es.php, en.php o ko.php
 
-    $modo = "claro";
+ 
 
 ?>
 
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>El único final de la villana es la muerte</title> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><?= $traducciones["el_unico_final"] ?></title> 
+        <!-- Enlace para los estilos de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .language-buttons {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .language-buttons img {
+            width: 32px;
+            height: 32px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    </style>
     </head>
     <body>
-        <h1>Cuestionario "El unico final de la villana es la muerte"</h1>
+         <!-- Botones de idioma en la esquina superior derecha usando iconos de Flaticon -->
+    <div class="language-buttons">
+        <!-- Bandera de España (SVG de Flaticon) -->
+        <a href="?idioma=en"><img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="English"
+                title="English"></a>
+        <!-- Bandera de Reino Unido (SVG de Flaticon) -->
+        <a href="?idioma=es"><img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="Español"
+                title="Español"></a>
+        <!-- Bandera de Corea (SVG de Flaticon) -->
+        <a href="?idioma=ko"><img src="https://cdn-icons-png.flaticon.com/128/5111/5111586.png" alt="Coreano"
+                title="Coreano"></a>
+    </div>
+        <h1><?= $traducciones["cuestionario"] ?></h1>
       
     <form action="resultado.php" method="POST">
 
     
 
-        <h2>Preguntas</h2>
+        <h2><?= $traducciones["preguntas"] ?></h2>
 
         <!-- 1 -->
-        <p>1. ¿Quién son los dos hermanos adoptivos de Pénelope?</p>
-        <input type="radio" name="pregunta1" value="cyw">Callisto y Winter<br>
-        <input type="radio" name="pregunta1" value="ryd">Reynold y Derrik<br>
-        <input type="radio" name="pregunta1" value="yyl">Yvonne y Laila<br>
-        <input type="radio" name="pregunta1" value="eyk">Eclise y Kaden<br>
+        <p><?= $traducciones["p1"] ?></p>
+        <input type="radio" name="pregunta1" value="Callisto y Winter"><?= $traducciones["r1.1"] ?><br>
+        <input type="radio" name="pregunta1" value="Reynold y Derrik"><?= $traducciones["r1.2"] ?><br>
+        <input type="radio" name="pregunta1" value="Yvonne y Laila"><?= $traducciones["r1.3"] ?><br>
+        <input type="radio" name="pregunta1" value="Eclise y Kaden"><?= $traducciones["r1.4"] ?><br>
 
         <!-- 2 -->
-        <p>2. ¿Cuál es la dificultad principal de Penélope al inicio del manhwa?</p>
+        <p><?= $traducciones["p2"] ?></p>
         <select name="pregunta2">
-            <option>-Seleccionar-</option>
-            <option value="recuerdos">No tiene recuerdos</option>
-            <option value="afecto">Sus acciones bajan la barra de afecto</option>
-            <option value="muerte">Cualquier decisión incorrecta puede llevarla a la muerte</option>
-            <option value="hablar">No puede hablar</option>
+            <option><?= $traducciones["rs"] ?></option>
+            <option value="Recuerdos"><?= $traducciones["r2.1"] ?></option>
+            <option value="Afecto"><?= $traducciones["r2.2"] ?></option>
+            <option value="Vivir"><?= $traducciones["r2.3"] ?></option>
+            <option value="No habla"><?= $traducciones["r2.4"] ?></option>
         </select>
 
         <!-- 3 -->
-        <p>3. ¿Qué trata de evitar Penélope a toda costa?</p>
+        <p><?= $traducciones["p3"] ?></p>
         <input type="text" name="pregunta3">
 
         <!-- 4 -->
-        <p>4. ¿Qué color de pelo tiene Penélope Eckhart en “El único final de la villana es la muerte”?</p>
-        <input type="radio" name="pregunta4" value="rubio"> Rubio<br>
-        <input type="radio" name="pregunta4" value="castaño"> Castaño<br>
-        <input type="radio" name="pregunta4" value="rosado"> Rosado<br>
+        <p><?= $traducciones["p4"] ?></p>
+        <input type="radio" name="pregunta4" value="Rubio"><?= $traducciones["r4.1"] ?><br>
+        <input type="radio" name="pregunta4" value="Castaño"><?= $traducciones["r4.2"] ?><br>
+        <input type="radio" name="pregunta4" value="Rosado"><?= $traducciones["r4.3"] ?><br>
 
         <!-- 5 -->
-        <p>5. ¿Cuál es el objetivo principal de Penelope en la historia?</p>
+        <p><?= $traducciones["p5"] ?></p>
         <select name="pregunta5">
-            <option>-Seleccionar-</option>
-            <option value="reina">Convertirse en reina</option>
-            <option value="sobrevivir">Sobrevivir en el juego y evitar su muerte</option>
-            <option value="venganza">Vengarse de su familia</option>
-            <option value="tesoro">Encontrar un tesoro perdido</option>
+            <option><?= $traducciones["rs"] ?></option>
+            <option value="Ser Reina"><?= $traducciones["r5.1"] ?></option>
+            <option value="Sobrevivir"><?= $traducciones["r5.2"] ?></option>
+            <option value="Venganza"><?= $traducciones["r5.3"] ?></option>
+            <option value="Encontrar Tesoro"><?= $traducciones["r5.4"] ?></option>
         </select>
 
         <!-- 6 -->
-        <p>6. ¿Cuál de los siguientes NO es un personaje masculino importante en el manhwa?</p>
-        <input type="checkbox" name="pregunta6[]" value="Callisto">Callisto Regulus<br>
-        <input type="checkbox" name="pregunta6[]" value="Hermione"> Hermione Granger<br>
-        <input type="checkbox" name="pregunta6[]" value="Reynold"> Reynold Eckhart<br>
-        <input type="checkbox" name="pregunta6[]" value="Navier"> Navier<br>
+        <p><?= $traducciones["p6"] ?></p>
+        <input type="checkbox" name="pregunta6[]" value="Callisto"><?= $traducciones["r6.1"] ?><br>
+        <input type="checkbox" name="pregunta6[]" value="Hermione"><?= $traducciones["r6.2"] ?><br>
+        <input type="checkbox" name="pregunta6[]" value="Reynold"><?= $traducciones["r6.3"] ?><br>
+        <input type="checkbox" name="pregunta6[]" value="Navier"><?= $traducciones["r6.4"] ?><br>
 
         <!-- 7 -->
-        <p>7. ¿Cómo se llama la "verdadera" hija de los Eckhart”?</p>
+        <p><?= $traducciones["p7"] ?></p>
         <input type="text" name="pregunta7">
 
         <!-- 8 -->
-        <p>8. ¿Quién es el caballero exclavo que Pénelope intenta salvar”?</p>
-        <input type="radio" name="pregunta8" value="callisto">Callisto<br>
-        <input type="radio" name="pregunta8" value="yvonne">Yvonne<br>
-        <input type="radio" name="pregunta8" value="eclise">Eclise<br>
-        <input type="radio" name="pregunta8" value="kaden">Kaden<br>
+        <p><?= $traducciones["p8"] ?></p>
+        <input type="radio" name="pregunta8" value="Callisto"><?= $traducciones["r8.1"] ?><br>
+        <input type="radio" name="pregunta8" value="Yvonne"><?= $traducciones["r8.2"] ?><br>
+        <input type="radio" name="pregunta8" value="Eclise"><?= $traducciones["r8.3"] ?><br>
+        <input type="radio" name="pregunta8" value="Kaden"><?= $traducciones["r8.4"] ?><br>
 
         <!-- 9 -->
-        <p>9. ¿Cómo llega Penélope Eckhart al mundo del juego?</p>
+        <p><?= $traducciones["p9"] ?></p>
         <select type="text" name="pregunta9">
-            <option>-Seleccionar-</option>
-            <option value="muere">Muere en su mundo y reencarna</option>
-            <option value="Absorvida">Es absorvida por un libro</option>
-            <option value="despierta">Se despierta dentro del juego otome</option>
-            <option value="viaja">Viaja por un portal mágico</option>
+            <option><?= $traducciones["rs"] ?></option>
+            <option value="Reencarna"><?= $traducciones["r9.1"] ?></option>
+            <option value="Absorvida"><?= $traducciones["r9.2"] ?></option>
+            <option value="Despierta en el juego"><?= $traducciones["r9.3"] ?></option>
+            <option value="Viaja"><?= $traducciones["r9.4"] ?></option>
             
         </select>
 
         <!-- 10 -->
-        <p>10. ¿Qué personaje tiene un comportamiento obsesivo hacia Penélope?</p>
+        <p><?= $traducciones["p10"] ?></p>
         <input type="text" name="pregunta10">
 
         <br><br>
-        <input type="submit" value="Enviar respuestas">
+        <button type="submit"><?= $traducciones["Enviar"] ?></button>
 
     </form>
 

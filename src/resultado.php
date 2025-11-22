@@ -38,27 +38,31 @@ if (empty($pregunta6)) {
 $contador = 0;
 $total = 10;
 
-if ($preguntas[1] == "ryd") { 
+/*if ($preguntas[1] == "Reynold y Derrik") { 
+    $contador += 1; $r1 = "Correcto"; 
+} else { $r1 = "Incorrecto"; 
+}*/
+if ($preguntas[1] == "Reynold y Derrik") { 
     $contador += 1; $r1 = "Correcto"; 
 } else { $r1 = "Incorrecto"; 
 }
 
-if ($preguntas[2] == "muerte") {
+if ($preguntas[2] == "Afecto") {
     $contador += 1; $r2 = "Correcto"; 
 } else { $r2 = "Incorrecto"; 
 }
 
-if (strtolower(trim($preguntas[3])) == "muerte") { 
+if (strtolower(trim($preguntas[3])) == "morir") { 
     $contador += 1; $r3 = "Correcto"; 
 } else { $r3 = "Incorrecto"; 
 }
 
-if ($preguntas[4] == "rosado") { 
+if ($preguntas[4] == "Rosado") { 
     $contador += 1; $r4 = "Correcto"; 
 } else { $r4 = "Incorrecto"; 
 }
 
-if ($preguntas[5] == "sobrevivir") { 
+if ($preguntas[5] == "Sobrevivir") { 
     $contador += 1; $r5 = "Correcto"; 
 } else { $r5 = "Incorrecto"; }
 
@@ -70,17 +74,17 @@ if (array_diff($correctas6, $pregunta6) == [] && count($pregunta6) == count($cor
     $r6 = "Incorrecto"; 
 }
 
-if (strtolower(trim($preguntas[7])) == "Yvonne") { 
+if (strtolower(trim($preguntas[7])) == "yvonne") { 
     $contador += 1; $r7 = "Correcto"; 
 } else { $r7 = "Incorrecto"; 
 }
 
-if ($preguntas[8] == "eclise") { 
+if ($preguntas[8] == "Eclise") { 
     $contador += 1; $r8 = "Correcto"; 
 } else { $r8 = "Incorrecto"; 
 }
 
-if ($preguntas[9] == "despierta") { 
+if ($preguntas[9] == "Despierta en el juego") { 
     $contador += 1; $r9 = "Correcto"; 
 } else { $r9 = "Incorrecto"; }
 

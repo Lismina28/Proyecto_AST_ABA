@@ -8,37 +8,50 @@
         "title_error" => "Error",
         "error_msg" => "Ha excedido el número permitido de inicios de sesión. &#128542;",
         "return_login" => "Volver al login",
-        "remaining_attempts" => "Intentos restantes: "
-        "el_unico_final" 
-        "cuestionario"
-        "preguntas"
-        "p1"
-        "r1.1"
-        "r1.2"
-        "r1.3"
-        "r1.4"
-        "p2"
-        "rs"
-        "r2.1"
-        "r2.2"
-        "r2.3"
-        "r2.4"
-        "p3"
-        "r3.1"
-        "p4"
-        "r4.1"
-        "r4.2"
-        "r4.3"
-        "p5"
-        "r5.1"
-        "r5.2"
-        "r5.3"
-        "r5.4"
-        "p7"
-        "r7.1"
-        "p8"
-        "r8.1"
-        "r8.2"
+        "remaining_attempts" => "Intentos restantes: ",
+        "el_unico_final" => "El único final de la villana es la muerte",
+        "cuestionario" => 'Cuestionario <br> "El unico final de la villana es la muerte"',
+        "preguntas" => "Preguntas",
+        "p1" => "1. ¿Quién son los dos hermanos adoptivos de Pénelope?",
+        "r1.1" => "Callisto y Winter",
+        "r1.2" => "Reynold y Derrik",
+        "r1.3" => "Yvonne y Laila",
+        "r1.4" => "Eclise y Kaden",
+        "p2" => "2. ¿Cuál es la dificultad principal de Penélope al inicio del manhwa?",
+        "rs" => "-Seleccionar-",
+        "r2.1" => "No tiene recuerdos",
+        "r2.2" => "Sus acciones bajan la barra de afecto",
+        "r2.3" => "Cualquier decisión incorrecta puede llevarla a la muerte",
+        "r2.4" => "No puede hablar",
+        "p3" => "3. ¿Qué trata de evitar Penélope a toda costa?",
+        "ra" => "Respuesta abierta",
+        "p4" => "4. ¿Qué color de pelo tiene Penélope Eckhart?",
+        "r4.1" => "Rubio",
+        "r4.2" => "Castaño",
+        "r4.3" => "Rosado",
+        "p5" => "5. ¿Cuál es el objetivo principal de Penelope en la historia?",
+        "r5.1" => "Convertirse en reina",
+        "r5.2" => "Sobrevivir en el juego y evitar su muerte",
+        "r5.3" => "Vengarse de su familia",
+        "r5.4" => "Encontrar un tesoro perdido",
+        "p6" => "6. ¿Cuál de los siguientes NO es un personaje masculino importante en el manhwa?",
+        "r6.1" => "Callisto Regulus",
+        "r6.2" => "Hermione Granger",
+        "r6.3" => "Reynold Eckhart",
+        "r6.4" => "Navier",
+        "p7" => "7. ¿Cómo se llama la 'verdadera' hija de los Eckhart?",
+        "p8" => "8. ¿Quién es el caballero exclavo que Pénelope intenta salvar?",
+        "r8.1" => "Callisto",
+        "r8.2" => "Yvonne",
+        "r8.3" => "Eclise",
+        "r8.4" => "Kaden",
+        "p9" => "9. ¿Cómo llega Penélope Eckhart al mundo del juego?",
+        "r9.1" => "Muere en su mundo y reencarna",
+        "r9.2" => "Es absorvida por un libro",
+        "r9.3" => "Se despierta dentro del juego otome",
+        "r9.4" => "Viaja por un portal mágico",
+        "p10" => "10. ¿Qué personaje tiene un comportamiento obsesivo hacia Penélope?",
+        "Enviar" => "Enviar respuestas",
     ];
 
 ?>
