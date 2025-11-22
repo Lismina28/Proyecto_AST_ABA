@@ -38,10 +38,7 @@ if (empty($pregunta6)) {
 $contador = 0;
 $total = 10;
 
-/*if ($preguntas[1] == "Reynold y Derrik") { 
-    $contador += 1; $r1 = "Correcto"; 
-} else { $r1 = "Incorrecto"; 
-}*/
+
 if ($preguntas[1] == "Reynold y Derrik") { 
     $contador += 1; $r1 = "Correcto"; 
 } else { $r1 = "Incorrecto"; 

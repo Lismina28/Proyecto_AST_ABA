@@ -52,6 +52,11 @@
         "r9.4" => "Viaja por un portal mágico",
         "p10" => "10. ¿Qué personaje tiene un comportamiento obsesivo hacia Penélope?",
         "Enviar" => "Enviar respuestas",
+        "faltan"
+        "marcar"
+        "correcto"
+        "incorrecto"
+        
     ];
 
 ?>
