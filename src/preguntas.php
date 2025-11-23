@@ -1,7 +1,7 @@
 <?php
  session_start();
     
-    $idioma = $_GET["idioma"] ?? $_SESSION["idioma"];
+    $idioma = $_GET["idioma"] ?? $_SESSION["idioma"] ?? "es";
 
     $fichero = "$idioma.php";
 

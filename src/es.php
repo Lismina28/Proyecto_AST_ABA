@@ -52,11 +52,26 @@
         "r9.4" => "Viaja por un portal mágico",
         "p10" => "10. ¿Qué personaje tiene un comportamiento obsesivo hacia Penélope?",
         "Enviar" => "Enviar respuestas",
-        "faltan"
-        "marcar"
-        "correcto"
-        "incorrecto"
-        
+        "faltan_respuestas" => "Faltan respuestas por completar.",
+        "volver_formulario" => "Volver al formulario",
+        "error_pregunta6" => "Debe seleccionar al menos una opción en la pregunta 6.",
+        "correcto" => "Correcto",
+        "incorrecto" => "Incorrecto",
+        "resultados" => "Resultados del cuestionario",
+        "preguntas" => "Preguntas",
+        "tu respuesta" => "Tu respuesta",
+        "resultado" => "Resultado",
+        "pregunta1" => "1. Hermanos adoptivos de Penélope",
+        "pregunta2" => "2. Dificutad de Penélope",
+        "pregunta3" => "3. ¿Qué trata de evitar Penélope?",
+        "pregunta4" => "4. Color de pelo de Penélope",
+        "pregunta5" => "5. ¿Cuás es su objetivo?",
+        "pregunta6" => "6. No es un personaje",
+        "pregunta7" => "7. Verdadera hija",
+        "pregunta8" => "8. Caballero esclavo",
+        "pregunta9" => "9. ¿Cómo llega al mundo?",
+        "pregunta10" => "10. ¿Quién es obsesivo?"
+        "puntuacion" => "Puntuación final",        
     ];
 
 ?>

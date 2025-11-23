@@ -52,6 +52,27 @@
         "r9.4" => "She travels through a magical portal",
         "p10" => "10. Which character has an obsessive behavior towards Penelope?",
         "Enviar" => "Submit answers",
+        "faltan_respuestas" => "There are unanswered questions.",
+        "volver_formulario" => "Return to the form",
+        "error_pregunta6" => "You must select at least one option in question 6.",
+        "correcto" => "Correct",
+        "incorrecto" => "Incorrect",
+        "resultados" => "Quiz Results",
+        "preguntas" => "Questions",
+        "tu respuesta" => "Your answer",
+        "resultado" => "Result",
+        "pregunta1" => "1. Penelope's adoptive brothers",
+        "pregunta2" => "2. Main difficulty at the beginning",
+        "pregunta3" => "3. What Penelope tries to avoid",
+        "pregunta4" => "4. Penelope's hair color",
+        "pregunta5" => "5. What is her main goal?",
+        "pregunta6" => "6. Not an important character",
+        "pregunta7" => "7. Name of the 'real' daughter",
+        "pregunta8" => "8. Slave knight",
+        "pregunta9" => "9. How Penelope arrives in the game world",
+        "pregunta10" => "10. Who is obsessive?",
+        "puntuacion" => "Final Score",
+
     ];
 
 ?>

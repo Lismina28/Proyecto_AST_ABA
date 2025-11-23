@@ -94,65 +94,65 @@ if (strtolower(trim($preguntas[10])) == "eclise") {
 $nota_final = $contador * 1; 
 
 // Mostrar resultados
-echo "<h1>Resultados del cuestionario</h1>";
+echo "<h1>{$traducciones["resultados"]}</h1>";
 echo "<table border='1' cellpadding='8'>
         <tr>
-            <th>Pregunta</th>
-            <th>Tu respuesta</th>
-            <th>Resultado</th>
+            <th>{$traducciones["preguntas"]}</th>
+            <th>{$traducciones["tu respuesta"]}</th>
+            <th>{$traducciones["resultado"]}</th>
         </tr>
          <tr>
-            <td>1. Hermanos adoptivos de Penélope</td>
+            <td>{$traducciones["pregunta1"]}</td>
             <td>{$preguntas[1]}</td>
             <td>$r1</td>
         </tr>
         <tr>
-            <td>2. Dificutad de Penélope</td>
+            <td>{$traducciones["pregunta2"]}</td>
             <td>{$preguntas[2]}</td>
             <td>$r2</td>
         </tr>
         <tr>
-            <td>3. ¿Qué trata de evitar Penélope?</td>
+            <td>{$traducciones["pregunta3"]}</td>
             <td>{$preguntas[3]}</td>
             <td>$r3</td>
         </tr>
         <tr>
-            <td>4. Color de pelo de Penélope</td>
+            <td>{$traducciones["pregunta4"]}</td>
             <td>{$preguntas[4]}</td>
             <td>$r4</td>
         </tr>
         <tr>
-            <td>5. ¿Cuás es su objetivo?</td>
+            <td>{$traducciones["pregunta5"]}</td>
             <td>{$preguntas[5]}</td>
             <td>$r5</td>
         </tr>
         <tr>
-            <td>6. No es un personaje</td>
+            <td>{$traducciones["pregunta6"]}</td>
             <td>".implode(", ", $pregunta6)."</td>
             <td>$r6</td>
         </tr>
         <tr>
-            <td>7. Verdadera hija</td>
+            <td>{$traducciones["pregunta7"]}</td>
             <td>{$preguntas[7]}</td>
             <td>$r7</td>
         </tr>
         <tr>
-            <td>8. Caballero esclavo</td>
+            <td>{$traducciones["pregunta8"]}</td>
             <td>{$preguntas[8]}</td>
             <td>$r8</td>
         </tr>
         <tr>
-            <td>9. ¿Cómo llega al mundo?</td>
+            <td>{$traducciones["pregunta9"]}</td>
             <td>{$preguntas[9]}</td>
             <td>$r9</td>
         </tr>
         <tr>
-            <td>10. ¿Quién es obsesivo?</td>
+            <td>{$traducciones["pregunta10"]}</td>
             <td>{$preguntas[10]}</td>
             <td>$r10</td>
         </tr>
         <tr>
-            <th colspan='2'>Puntuación total</th>
+            <th colspan='2'>{$traducciones["puntuacion"]}</th>
             <th>$nota_final / $total</th>
         </tr>
     </table>";
