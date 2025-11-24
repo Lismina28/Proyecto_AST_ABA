@@ -91,7 +91,7 @@
 
     <h1><?= $traducciones["title_error"] ?></h1>
     <p><?= $traducciones["error_msg"]?></p>
-    <button onclick="window.location.href="login.php";"><?= $traducciones["return_login"]?>
+    <button onclick="window.location.href=login.php"><?= $traducciones["return_login"]?>
 
     </button>
 

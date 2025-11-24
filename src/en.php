@@ -72,6 +72,9 @@
         "pregunta9" => "9. How Penelope arrives in the game world",
         "pregunta10" => "10. Who is obsessive?",
         "puntuacion" => "Final Score",
+        "error" => "ERROR: There are unanswered questions.",
+        "marcar_opcion" => "You must mark at least one option in question 6.",
+        "volver" => "Return to the form",
 
     ];
 

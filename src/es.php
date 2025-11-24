@@ -70,8 +70,11 @@
         "pregunta7" => "7. Verdadera hija",
         "pregunta8" => "8. Caballero esclavo",
         "pregunta9" => "9. ¿Cómo llega al mundo?",
-        "pregunta10" => "10. ¿Quién es obsesivo?"
-        "puntuacion" => "Puntuación final",        
+        "pregunta10" => "10. ¿Quién es obsesivo?",
+        "puntuacion" => "Puntuación final",   
+        "error" => "ERROR: Faltan respuestas por completar.",
+        "marcar_opcion" => "Debe marcar al menos una opción en la pregunta 6.",
+        "volver" => "Volver al formulario",
     ];
 
 ?>
