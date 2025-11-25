@@ -18,7 +18,7 @@ require "$idioma.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $traducciones["titulo_inicio"] ?? "El único final de la villana es la muerte" ?></title>
+    <title><?= $traducciones["titulo_inicio"]?></title>
     <link rel="icon" type="image/png" href="img/logo2.png">
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> 
     <style>
@@ -48,11 +48,10 @@ require "$idioma.php";
     <div class="header-bar">
         <div class="logo-area">
             <a href="index.php"><img src="img/logo2.png" alt="Logo de la Web" class="logo"></a>
-            </div>
+        </div>
         <div class="nav-links">
             <a href="inicio.php" class="btn btn-sm" style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["link_inicio"]?></a>
             <a href="preguntas.php" class="btn btn-sm" style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["link_cuestionario"]?></a>
-            <a href="contacto.php" class="btn btn-sm" style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["link_contacto"]?></a>
         </div>
         <div class="language-buttons">
             <a href="?idioma=es"><img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="Español" title="Español"></a>
@@ -75,34 +74,25 @@ require "$idioma.php";
     </details>
 
     <h2><?= $traducciones["personajes"]?></h2>
-   <!-- <div id="aficiones-content" class="collapsible-content"> -->
+  
     <details>
         <summary><?= $traducciones["lista_personajes"] ?? "Personajes" ?></summary>
         <ul>
-            <li><?= $traducciones["personaje_penelope"] ?? "Penelope Eckart: La protagonista reencarnada." ?></li>
-            <li><?= $traducciones["personaje_callisto"] ?? "Príncipe Heredero Callisto Regulus: El loco pero encantador." ?></li>
-            <li><?= $traducciones["personaje_reynold"] ?? "Reynold Eckart: El segundo hijo de la casa Eckart." ?></li>
-            <li><?= $traducciones["personaje_derrick"] ?? "Derrick Eckart: El primer hijo de la casa Eckart." ?></li>
-            <li><?= $traducciones["personaje_winter"] ?? "Winter Vinter: El mago y duque." ?></li>
-            <li><?= $traducciones["personaje_eclise"] ?? "Eclise: El esclavo de Penelope." ?></li>
+            <li><?= $traducciones["personaje_penelope"]?></li>
+            <li><?= $traducciones["personaje_callisto"]?></li>
+            <li><?= $traducciones["personaje_reynold"]?></li>
+            <li><?= $traducciones["personaje_derrick"]?></li>
+            <li><?= $traducciones["personaje_winter"]?></li>
+            <li><?= $traducciones["personaje_eclise"]?></li>
         </ul>
     </details>
 
-    <h2 class="collapsible-title" onclick="toggleContent('contacto-content')"><?= $traducciones["titulo_contacto"] ?? "Contacto" ?></h2>
-    <div id="contacto-content" class="collapsible-content">
-        <p><?= $traducciones["contacto_texto"] ?? "Si tienes preguntas o comentarios sobre el manhwa, no dudes en contactarnos a través de nuestra página de <a href='contacto.php'>Contacto</a>." ?></p>
-    </div>
-<?php
-    /*<script>
-        function toggleContent(id) {
-            var content = document.getElementById(id);
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        }
-    </script>*/
-    ?>
+    <h2><?= $traducciones["contacto"] ?? "Contacto" ?></h2>
+    <details>
+        <summary><?= $traducciones["informacion_contacto"] ?? "Información de Contacto" ?></summary>
+        <p><?= $traducciones["email"]?> pgb61853@educastur.es</p>
+        <p><?= $traducciones["email"]?>jri46730@educastur.es</p>
+   </details>
+
 </body>
 </html>
