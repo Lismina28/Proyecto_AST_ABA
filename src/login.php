@@ -30,7 +30,9 @@
 
 
             if($usuario == $usuario_correcto && $contraseña == $contraseña_correcta){
-                header("Location: home.php");
+                $_SESSION["usuario_logueado"] = true;
+                $_SESSION["nombre_usuario"] = $usuario;
+                header("Location: inicio.php");
                 exit;
             } else {
                 $_SESSION["attempts"]--; //incrementa si son incorrectos los datos
