@@ -11,9 +11,15 @@
 
     $modo = "claro";
 
+    if(isset($_GET["theme"])){
+        $_SESSION["theme"] = $_GET["theme"];
+    }
+
+    $modo = $_SESSION["theme"] ?? "light";
+
 ?>
 
-<html data-bs-theme="<?php echo ($modo == "claro") ? "light" : "dark" ?>">
+<html data-bs-theme="<?php echo ($modo == "light") ? "light" : "dark" ?>">
 
 <head>
     <meta charset="UTF-8">
@@ -72,6 +78,30 @@
         transform: scale(1.1);
         /* Efecto de hover */
     }
+
+     /* Estilos para los botones del modo claro/oscuro */
+
+    .theme-buttons {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .theme-buttons img {
+        width: 40px;
+        /* Tamaño de las banderas */
+        height: auto;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: transform 0.2s;
+    }
+
+    .theme-buttons img:hover {
+        transform: scale(1.1);
+        /* Efecto de hover */
+    }
     </style>
 </head>
 
@@ -89,9 +119,20 @@
                 title="Coreano"></a>
     </div>
 
+    
+    <div class="theme-buttons">
+        <!-- Icono de modo oscuro (luna) -->
+        <a href="?theme=dark"><img src="https://cdn-icons-png.flaticon.com/128/3594/3594375.png" alt="Oscuro"
+                title="Oscuro"></a>
+        <!-- Icono de modo claro (sol) -->
+        <a href="?theme=light"><img src="https://cdn-icons-png.flaticon.com/128/2698/2698240.png" alt="Claro"
+                title="Claro"></a>
+        
+    </div>
+
     <h1><?= $traducciones["title_error"] ?></h1>
     <p><?= $traducciones["error_msg"]?></p>
-    <button onclick="window.location.href="login.php";"><?= $traducciones["return_login"]?>
+    <button onclick="window.location.href="login.php"><?= $traducciones["return_login"]?>
 
     </button>
 

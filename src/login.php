@@ -11,6 +11,12 @@
         $_SESSION["idioma"] = $_GET["idioma"];
     }
 
+
+    if(isset($_GET["theme"])){
+        $_SESSION["theme"] = $_GET["theme"];
+    }
+    
+
     $idioma = $_SESSION["idioma"] ?? "es";
 
     $fichero = "$idioma.php";
@@ -18,6 +24,11 @@
     $_SESSION["idioma"] = $idioma;
 
     require $fichero; //es.php, en.php o ko.php
+
+    $modo = $_SESSION["theme"] ?? "light";
+
+
+
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -27,29 +38,26 @@
         $usuario = $_POST["user"] ?? "";
         $contraseña = $_POST["password"] ?? "";
 
+        if($usuario == $usuario_correcto && $contraseña == $contraseña_correcta){
+            header("Location: home.php");
+            exit;
+        } else {
+            $_SESSION["attempts"]--; //incrementa si son incorrectos los datos
 
-
-            if($usuario == $usuario_correcto && $contraseña == $contraseña_correcta){
-                header("Location: home.php");
+            if($_SESSION["attempts"] <= 0) {
+                $_SESSION["attempts"] = 3;
+                header("Location: login_error.php");
                 exit;
-            } else {
-                $_SESSION["attempts"]--; //incrementa si son incorrectos los datos
-
-                if($_SESSION["attempts"] <= 0) {
-                    $_SESSION["attempts"] = 3;
-                    header("Location: login_error.php");
-                    exit;
-                }
             }
+        }
 
     }
 
-    $modo = "claro";
 
 ?>
 
 
-<html data-bs-theme="<?php echo ($modo == "claro") ? "light" : "dark" ?>">
+<html data-bs-theme="<?php echo ($modo == "light") ? "light" : "dark" ?>">
 
 <head>
     <meta charset="UTF-8">
@@ -143,6 +151,30 @@
         transform: scale(1.1);
         /* Efecto de hover */
     }
+
+    /* Estilos para los botones del modo claro/oscuro */
+
+    .theme-buttons {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .theme-buttons img {
+        width: 40px;
+        /* Tamaño de las banderas */
+        height: auto;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: transform 0.2s;
+    }
+
+    .theme-buttons img:hover {
+        transform: scale(1.1);
+        /* Efecto de hover */
+    }
     </style>
 </head>
 
@@ -160,6 +192,16 @@
                 title="Coreano"></a>
     </div>
 
+    <div class="theme-buttons">
+        <!-- Icono de modo oscuro (luna) -->
+        <a href="?theme=dark"><img src="https://cdn-icons-png.flaticon.com/128/3594/3594375.png" alt="Oscuro"
+                title="Oscuro"></a>
+        <!-- Icono de modo claro (sol) -->
+        <a href="?theme=light"><img src="https://cdn-icons-png.flaticon.com/128/2698/2698240.png" alt="Claro"
+                title="Claro"></a>
+        
+    </div>
+
     <h1><?= $traducciones["title"] ?></h1>
 
     <div class="login-form" data-bs-theme="dark">
@@ -174,7 +216,7 @@
     <p><?=$traducciones["remaining_attempts"]?> <?= $_SESSION["attempts"] ?> </p>
     <?php endif; ?>
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> <!-- Está esto para que funcione lo del modo claro/oscuro -->
 
 </body>
 
