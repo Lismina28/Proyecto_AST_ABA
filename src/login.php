@@ -44,17 +44,14 @@
         } else {
             $_SESSION["attempts"]--; //incrementa si son incorrectos los datos
 
-<<<<<<< HEAD
             if($_SESSION["attempts"] <= 0) {
                 $_SESSION["attempts"] = 3;
                 header("Location: login_error.php");
-=======
 
             if($usuario == $usuario_correcto && $contraseña == $contraseña_correcta){
                 $_SESSION["usuario_logueado"] = true;
                 $_SESSION["nombre_usuario"] = $usuario;
                 header("Location: inicio.php");
->>>>>>> refs/remotes/origin/master
                 exit;
             }
         }
