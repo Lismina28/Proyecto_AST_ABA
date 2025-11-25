@@ -182,12 +182,12 @@
 <body>
     <!-- Botones de idioma en la esquina superior derecha usando iconos de Flaticon -->
     <div class="language-buttons">
+         <!-- Bandera de Reino Unido (SVG de Flaticon) -->
+        <a href="?idioma=es"><img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="Español"
+                title="Español"></a>
         <!-- Bandera de España (SVG de Flaticon) -->
         <a href="?idioma=en"><img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="English"
                 title="English"></a>
-        <!-- Bandera de Reino Unido (SVG de Flaticon) -->
-        <a href="?idioma=es"><img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="Español"
-                title="Español"></a>
         <!-- Bandera de Corea (SVG de Flaticon) -->
         <a href="?idioma=ko"><img src="https://cdn-icons-png.flaticon.com/128/5111/5111586.png" alt="Coreano"
                 title="Coreano"></a>

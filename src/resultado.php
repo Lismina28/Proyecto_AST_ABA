@@ -1,16 +1,16 @@
 <?php
 
- session_start();
-    
-    $idioma = $_GET["idioma"] ?? $_SESSION["idioma"];
+session_start();
 
-    $fichero = "$idioma.php";
+$idioma = $_GET["idioma"] ?? $_SESSION["idioma"];
 
-    $_SESSION["idioma"] = $idioma;
+$fichero = "$idioma.php";
 
-    require $fichero; //es.php, en.php o ko.php
+$_SESSION["idioma"] = $idioma;
 
-    $modo = "claro";
+require $fichero; //es.php, en.php o ko.php
+
+$modo = "claro";
 
 for ($i = 1; $i <= 10; $i++) {
     $preguntas[$i] = $_POST["pregunta$i"] ?? "";
@@ -39,59 +39,79 @@ $contador = 0;
 $total = 10;
 
 
-if ($preguntas[1] == "ryd") { 
-    $contador += 1; $r1 = $traducciones["correcto"]; 
-} else { $r1 = $traducciones["incorrecto"]; 
+if ($preguntas[1] == "ryd") {
+    $contador += 1;
+    $r1 = $traducciones["correcto"];
+} else {
+    $r1 = $traducciones["incorrecto"];
 }
 
 if ($preguntas[2] == "afecto") {
-    $contador += 1; $r2 = $traducciones["correcto"]; 
-} else { $r2 = $traducciones["incorrecto"]; 
+    $contador += 1;
+    $r2 = $traducciones["correcto"];
+} else {
+    $r2 = $traducciones["incorrecto"];
 }
 
-if (strtolower(trim($preguntas[3])) == "morir") { 
-    $contador += 1; $r3 = $traducciones["correcto"]; 
-} else { $r3 = $traducciones["incorrecto"]; 
+if (strtolower(trim($preguntas[3])) == "morir") {
+    $contador += 1;
+    $r3 = $traducciones["correcto"];
+} else {
+    $r3 = $traducciones["incorrecto"];
 }
 
-if ($preguntas[4] == "rosado") { 
-    $contador += 1; $r4 = $traducciones["correcto"]; 
-} else { $r4 = $traducciones["incorrecto"]; 
+if ($preguntas[4] == "rosado") {
+    $contador += 1;
+    $r4 = $traducciones["correcto"];
+} else {
+    $r4 = $traducciones["incorrecto"];
 }
 
-if ($preguntas[5] == "sobrevivir") { 
-    $contador += 1; $r5 = $traducciones["correcto"]; 
-} else { $r5 = $traducciones["incorrecto"]; }
+if ($preguntas[5] == "sobrevivir") {
+    $contador += 1;
+    $r5 = $traducciones["correcto"];
+} else {
+    $r5 = $traducciones["incorrecto"];
+}
 
 $correctas6 = ["hermione", "navier"];
 if (array_diff($correctas6, $pregunta6) == [] && count($pregunta6) == count($correctas6)) {
-    $contador += 1; 
-    $r6 = $traducciones["correcto"]; 
-} else { 
-    $r6 = $traducciones["incorrecto"]; 
+    $contador += 1;
+    $r6 = $traducciones["correcto"];
+} else {
+    $r6 = $traducciones["incorrecto"];
 }
 
-if (strtolower(trim($preguntas[7])) == "yvonne") { 
-    $contador += 1; $r7 = $traducciones["correcto"]; 
-} else { $r7 = $traducciones["incorrecto"]; 
+if (strtolower(trim($preguntas[7])) == "yvonne") {
+    $contador += 1;
+    $r7 = $traducciones["correcto"];
+} else {
+    $r7 = $traducciones["incorrecto"];
 }
 
-if ($preguntas[8] == "eclise") { 
-    $contador += 1; $r8 = $traducciones["correcto"]; 
-} else { $r8 = $traducciones["incorrecto"]; 
+if ($preguntas[8] == "eclise") {
+    $contador += 1;
+    $r8 = $traducciones["correcto"];
+} else {
+    $r8 = $traducciones["incorrecto"];
 }
 
-if ($preguntas[9] == "despierta_en_el_juego") { 
-    $contador += 1; $r9 = $traducciones["correcto"]; 
-} else { $r9 = $traducciones["incorrecto"]; }
+if ($preguntas[9] == "despierta_en_el_juego") {
+    $contador += 1;
+    $r9 = $traducciones["correcto"];
+} else {
+    $r9 = $traducciones["incorrecto"];
+}
 
-if (strtolower(trim($preguntas[10])) == "eclise") { 
-    $contador += 1; $r10 = $traducciones["correcto"]; 
-} else { $r10 = $traducciones["incorrecto"]; 
+if (strtolower(trim($preguntas[10])) == "eclise") {
+    $contador += 1;
+    $r10 = $traducciones["correcto"];
+} else {
+    $r10 = $traducciones["incorrecto"];
 }
 
 
-$nota_final = $contador * 1; 
+$nota_final = $contador * 1;
 
 // Mostrar resultado
 
