@@ -75,6 +75,19 @@
         "error" => "ERROR: Faltan respuestas por completar.",
         "marcar_opcion" => "Debe marcar al menos una opción en la pregunta 6.",
         "volver" => "Volver al formulario",
+        "link_inicio" => "Inicio",
+        "link_cuestionario" => "Cuestionario",
+        "link_contacto" => "Contacto",
+        "logout" => "Cerrar Sesión",
+        "bienvenido" => "Bienvenido a la Web, ",
+        "informacion" => "Información del Manhwa",
+        "titulo" => "El único final de la villana es la muerte",
+        "parrafo1" => "'El único final de la villana es la muerte' 
+        es la historia de Penélope Eckart, una joven que reencarna<br> 
+        en el cuerpo de la villana de un juego otome de dificultad máxima, 
+        quien está destinada a morir sin<br> importar sus acciones. 
+        La trama gira en torno a su lucha por sobrevivir y cambiar<br> el fatal destino que el juego le impone.",
+        "personajes" => "Personajes Principales",
     ];
 
 ?>

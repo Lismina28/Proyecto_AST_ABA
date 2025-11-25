@@ -36,6 +36,11 @@
     </style>
     </head>
     <body>
+          <div class="nav-links">
+            <a href="inicio.php"><?= $traducciones["link_inicio"] ?? "Inicio" ?></a>
+            <a href="preguntas.php"><?= $traducciones["link_cuestionario"] ?? "Cuestionario" ?></a>
+            <a href="contacto.php"><?= $traducciones["link_contacto"] ?? "Contacto" ?></a>
+        </div>
          <!-- Botones de idioma en la esquina superior derecha usando iconos de Flaticon -->
     <div class="language-buttons">
         <!-- Bandera de España (SVG de Flaticon) -->

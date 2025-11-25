@@ -75,7 +75,19 @@
         "error" => "ERROR: There are unanswered questions.",
         "marcar_opcion" => "You must mark at least one option in question 6.",
         "volver" => "Return to the form",
-
+        "link_inicio" => "Home",
+        "link_cuestionario" => "Questionnaire",
+        "link_contacto" => "Contact",
+        "logout" => "Logout",
+        "bienvenido" => "Welcome to the Website, ",
+        "informacion" => "Manhwa Information",
+        "titulo" => "The Only Ending for the Villainess Is Death",
+        "parrafo1" => "'The Only Ending for the Villainess Is Death' 
+        is the story of Penelope Eckhart,<br> a young girl who reincarnates 
+        into the body of the villainess of a high-difficulty<br> otome game, 
+        destined to die no matter her actions. The plot revolves<br> around 
+        her struggle to survive and change the fatal destiny imposed by the game.",
+        "personajes" => "Main Characters",
     ];
 
 ?>
