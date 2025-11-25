@@ -1,12 +1,6 @@
 <?php
 $modo = "claro";
 
-<<<<<<< HEAD
-=======
-?>
-
-<html data-bs-theme="<?php echo ($modo == "claro") ? "light" : "dark" ?>">
->>>>>>> c19865dcb633f9e3b5bd12c98d60051b3ed31bbd
  session_start();
 
  if (!isset($_SESSION['usuario_logueado']) || $_SESSION['usuario_logueado'] !== true) {
@@ -100,15 +94,14 @@ $modo = "claro";
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<<<<<<< HEAD
 
 <body>
     <h1>Cuestionario "El unico final de la villana es la muerte"</h1>
     <div class="form" data-bs-theme="<?php echo ($modo == "claro") ? "light" : "dark" ?>">
         <form action="resultado.php" method="POST">
 
-=======
->>>>>>> c19865dcb633f9e3b5bd12c98d60051b3ed31bbd
+
+
         <h2><?= $traducciones["preguntas"] ?></h2>
 
         <!-- 1 -->
