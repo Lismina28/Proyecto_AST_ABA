@@ -32,33 +32,30 @@
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        $usuario_correcto = "admin";
-        $contraseña_correcta = "1234";
+            $usuario_correcto = "admin";
+            $contraseña_correcta = "1234";
 
-        $usuario = $_POST["user"] ?? "";
-        $contraseña = $_POST["password"] ?? "";
-
-        if($usuario == $usuario_correcto && $contraseña == $contraseña_correcta){
-            header("Location: home.php");
-            exit;
-        } else {
-            $_SESSION["attempts"]--; //incrementa si son incorrectos los datos
-
-<<<<<<< HEAD
-            if($_SESSION["attempts"] <= 0) {
-                $_SESSION["attempts"] = 3;
-                header("Location: login_error.php");
-=======
+            $usuario = $_POST["user"] ?? "";
+            $contraseña = $_POST["password"] ?? "";
 
             if($usuario == $usuario_correcto && $contraseña == $contraseña_correcta){
-                $_SESSION["usuario_logueado"] = true;
-                $_SESSION["nombre_usuario"] = $usuario;
-                header("Location: inicio.php");
->>>>>>> refs/remotes/origin/master
+                header("Location: home.php");
                 exit;
+            } else {
+                $_SESSION["attempts"]--; //incrementa si son incorrectos los datos
+
+                if($_SESSION["attempts"] <= 0) {
+                    $_SESSION["attempts"] = 3;
+                    header("Location: login_error.php");
+
+                if($usuario == $usuario_correcto && $contraseña == $contraseña_correcta){
+                    $_SESSION["usuario_logueado"] = true;
+                    $_SESSION["nombre_usuario"] = $usuario;
+                    header("Location: inicio.php");
+                    exit;
+                }
             }
         }
-
     }
 
 
@@ -207,7 +204,7 @@
         <!-- Icono de modo claro (sol) -->
         <a href="?theme=light"><img src="https://cdn-icons-png.flaticon.com/128/2698/2698240.png" alt="Claro"
                 title="Claro"></a>
-        
+
     </div>
 
     <h1><?= $traducciones["title"] ?></h1>
@@ -223,8 +220,9 @@
     <?php if($_SESSION["attempts"] < 3): ?>
     <p><?=$traducciones["remaining_attempts"]?> <?= $_SESSION["attempts"] ?> </p>
     <?php endif; ?>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> <!-- Está esto para que funcione lo del modo claro/oscuro -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Está esto para que funcione lo del modo claro/oscuro -->
 
 </body>
 
