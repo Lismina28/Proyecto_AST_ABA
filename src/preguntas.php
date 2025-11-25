@@ -7,6 +7,11 @@ $modo = "claro";
 <html data-bs-theme="<?php echo ($modo == "claro") ? "light" : "dark" ?>">
 =======
  session_start();
+
+ if (!isset($_SESSION['usuario_logueado']) || $_SESSION['usuario_logueado'] !== true) {
+    header('Location: login.php'); // O a tu página de login
+    exit();
+}
     
     $idioma = $_GET["idioma"] ?? $_SESSION["idioma"] ?? "es";
 
@@ -25,6 +30,7 @@ $modo = "claro";
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?= $traducciones["el_unico_final"] ?></title> 
+         <link rel="icon" type="image/png" href="img/logo2.png">
         <!-- Enlace para los estilos de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -40,14 +46,36 @@ $modo = "claro";
             margin-left: 10px;
             cursor: pointer;
         }
+         body { 
+            background-image: url('img/Fondo.jpg');
+            background-size: cover;
+            font-family: 'Comic Sans MS'; margin: 20px; }
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        .logo { width: 50px; height: 50px; /* logo */ }
+        .nav-links a { margin-right: 15px; text-decoration: none; color: #333; }
+        .language-buttons img { width: 32px; height: 32px; margin-left: 10px; cursor: pointer; }
+        .collapsible-content { display: none; margin-top: 10px; padding-left: 20px; border-left: 2px solid #eee; }
+        .collapsible-title { cursor: pointer; font-weight: bold; }
+        .collapsible-title:hover { text-decoration: underline; }
     </style>
     </head>
     <body>
-          <div class="nav-links">
-            <a href="inicio.php"><?= $traducciones["link_inicio"] ?? "Inicio" ?></a>
-            <a href="preguntas.php"><?= $traducciones["link_cuestionario"] ?? "Cuestionario" ?></a>
-            <a href="contacto.php"><?= $traducciones["link_contacto"] ?? "Contacto" ?></a>
+         <div class="header-bar">
+        <div class="logo-area">
+            <a href="index.php"><img src="img/logo2.png" alt="Logo de la Web" class="logo"></a>
         </div>
+        <div class="nav-links">
+            <a href="inicio.php" class="btn btn-sm" style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["link_inicio"]?></a>
+            <a href="preguntas.php" class="btn btn-sm" style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["link_cuestionario"]?></a>
+        </div>
+         
          <!-- Botones de idioma en la esquina superior derecha usando iconos de Flaticon -->
     <div class="language-buttons">
         <!-- Bandera de España (SVG de Flaticon) -->

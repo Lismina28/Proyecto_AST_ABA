@@ -88,6 +88,30 @@
         quien está destinada a morir sin<br> importar sus acciones. 
         La trama gira en torno a su lucha por sobrevivir y cambiar<br> el fatal destino que el juego le impone.",
         "personajes" => "Personajes Principales",
+        "lista_personajes" => "Lista de Personajes",
+        "personaje_penelope" => "Penelope Eckart:  Es el personaje principal 
+        que renace como la villana<br> del juego otome que jugaba. Su objetivo es 
+        sobrevivir a las múltiples<br> consecuencias de su nuevo papel y ganarse el 
+        favor de los otros personajes.",
+        "personaje_callisto" => "Callisto Regulus (Príncipe Heredero):Un personaje despiadado y poderoso.<br> 
+        Penelope debe navegar por su naturaleza volátil y evitar ser ejecutada<br> mientras busca asegurar 
+        su afecto para garantizar su supervivencia.",
+        "personaje_reynold" => "Reynold Eckart: El segundo hijo de la casa Eckart.<br> 
+        A diferencia de su hermano mayor, es más amable y protector con Penelope,<br>
+        desarrollando sentimientos genuinos hacia ella.",
+        "personaje_derrick" => "Derrick Eckart: El primer hijo de la casa Eckart.<br> 
+        Es conocido por su personalidad fría y calculadora. Aunque inicialmente ve a Penelope<br>
+        como una molestia, eventualmente muestra un lado más suave hacia ella.",
+        "personaje_winter" =>  "Winter Vinter: El mago y duque.<br> 
+        Es un personaje enigmático con una gran influencia en la corte. A pesar de su<br> 
+        apariencia distante, tiene un interés particular en Penelope y su bienestar.",
+        "personaje_eclise" => "Eclise: El esclavo de Penelope.<br> 
+        A pesar de su estatus, muestra una lealtad inquebrantable hacia ella y desempeña un papel crucial<br>
+        en su lucha por sobrevivir en el mundo del juego.",
+        "contacto" => "Contacto",
+        "informacion_contacto" => "Información de Contacto",
+        "email" => "email:",
+        "titulo_inicio" => "El único final de la villana es la muerte",
     ];
 
 ?>

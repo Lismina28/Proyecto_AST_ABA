@@ -88,6 +88,35 @@
         destined to die no matter her actions. The plot revolves<br> around 
         her struggle to survive and change the fatal destiny imposed by the game.",
         "personajes" => "Main Characters",
+        "lista_personajes" => "List of Characters",
+        "personaje_penelope" => "Penelope Eckart: She is the main character 
+        who is reborn<br> as the villainess of the otome game she was playing. Her goal<br> 
+        is to survive the multiple consequences of her new role and<br> win the favor 
+        of the other characters.",
+        "personaje_callisto" => "Callisto Regulus (Crown Prince): A ruthless 
+        and powerful character. Penelope must navigate<br> his volatile nature and
+        avoid being executed while seeking to secure his affection<br> to ensure her survival.",
+        "personaje_reynold" => "Reynold Eckhart (Duke of Lestia): Penelope's 
+        adoptive older brother. He is<br> known for his cold and calculating demeanor,
+        but he harbors a deep concern for Penelope's well-being<br> and often acts 
+        to protect her from harm.",
+        "personaje_derrick" => "Derrik Eckhart (Duke of Velt): The younger 
+        adoptive brother of Penelope. He is<br> cheerful and outgoing, often
+        providing a contrast to Reynold's seriousness. Derrik<br> develops a close
+        bond with Penelope and supports her efforts to change her fate.",
+        "personaje_winter" => "Winter Siegfried: The cold and aloof 
+        magician who serves as<br> an advisor to the Eckhart family. Despite
+        his distant demeanor, Winter is highly intelligent and<br> perceptive,
+        often providing crucial insights that help Penelope navigate<br> the challenges
+        of the otome game world.",
+        "personaje_eclise" => "Eclise: A loyal and skilled slave knight 
+        who serves Penelope. Despite<br> his status as a slave, Eclise is
+        fiercely devoted to Penelope and plays a key role<br> in her efforts to
+        survive the dangers of the otome game world.",
+        "contacto" => "Contact",
+        "informacion_contacto" => "Contact Information",
+        "email" => "email:",
+        "titulo_inicio" => "The Only Ending for the Villainess Is Death",
     ];
 
 ?>
