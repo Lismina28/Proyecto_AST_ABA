@@ -60,6 +60,15 @@ require $fichero; //es.php, en.php o ko.php
             margin: 20px;
         }
 
+        h1 {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(246, 127, 196, 0.7);
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 5px;
+        }
+
         .header-bar {
             display: flex;
             justify-content: space-between;
@@ -103,6 +112,16 @@ require $fichero; //es.php, en.php o ko.php
         .collapsible-title:hover {
             text-decoration: underline;
         }
+
+        form {
+            max-width: 800px;
+            margin: 30px auto 10px auto;
+            padding: 5px 15px;
+            border-radius: 5px;
+            background-color: rgba(251, 190, 225, 0.7);
+            color: #333;
+        }
+        
     </style>
 </head>
 

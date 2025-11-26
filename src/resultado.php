@@ -120,16 +120,17 @@ $nota_final = $contador * 1;
 ?>
 <!-- Mostrar resultado -->
 <html data-bs-theme="<?php echo ($modo == "claro") ? "light" : "dark" ?>">
-    <head>
 
-  <meta charset="UTF-8">
+<head>
+
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $traducciones["titulo_inicio"] ?></title>
     <link rel="icon" type="image/png" href="img/logo2.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
- <style>
-          /* Estilos para los botones de las banderas */
+    <style>
+        /* Estilos para los botones de las banderas */
         .language-buttons {
             display: flex;
             gap: 10px;
@@ -152,13 +153,12 @@ $nota_final = $contador * 1;
 
         /* Estilos CSS básicos para el layout y los botones */
         body {
-           background: url('img/Fondo.jpg') no-repeat center center fixed;
+            background: url('img/Fondo.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Comic Sans MS';
             margin: 20px;
-            text-align: center; 
+            text-align: center;
         }
-
         .header-bar {
             display: flex;
             justify-content: space-between;
@@ -203,32 +203,50 @@ $nota_final = $contador * 1;
         }
 
         table {
-            width:40%;
+            width: 40%;
             border-collapse: collapse;
-            margin: 150px auto;
-            
+            margin: 20px auto;
+            border-radius: 5px;
+            overflow: hidden;
         }
 
-        table, th, td {
-           
+        table,
+        th,
+        td {
+
             padding: 10px;
             text-align: center;
-            border-radius: 5px;
         }
+
         th {
-            background-color: #f67fc4ff;
+            background-color: rgba(246, 127, 196, 0.8);
             text-align: left;
             padding: 8px;
+
         }
+
         td {
-            background-color: #fbbee1ff;
+            background-color: rgba(251, 190, 225, 0.7);
             padding: 8px;
+
         }
+
+        h1 {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(246, 127, 196, 0.7);
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 5px;
+        }
+
     </style>
 
-    </head>
-    <body>
-   <div class="header-bar">
+</head>
+
+<body>
+
+    <div class="header-bar">
         <div class="logo-area">
             <a href="inicio.php"><img src="img/logo2.png" alt="Logo de la Web" class="logo"></a>
         </div>
@@ -244,56 +262,57 @@ $nota_final = $contador * 1;
         </div>
     </div>
 
-<h1><?=$traducciones["resultados"]?></h1>
-<table cellpadding='8'>
+    <h1><?= $traducciones["resultados"] ?></h1>
+    <table cellpadding='8'>
         <tr>
-            <th><?=$traducciones["preguntas"]?></th>
-            <th><?=$traducciones["resultado"]?></th>
-        </tr>
-         <tr>
-            <td><?=$traducciones["pregunta1"]?></td>
-            <td><?=$r1?></td>
+            <th><?= $traducciones["preguntas"] ?></th>
+            <th><?= $traducciones["resultado"] ?></th>
         </tr>
         <tr>
-            <td><?=$traducciones["pregunta2"]?></td>
-            <td><?=$r2?></td>
+            <td><?= $traducciones["pregunta1"] ?></td>
+            <td><?= $r1 ?></td>
         </tr>
         <tr>
-            <td><?=$traducciones["pregunta3"]?></td>
-            <td><?=$r3?></td>
+            <td><?= $traducciones["pregunta2"] ?></td>
+            <td><?= $r2 ?></td>
         </tr>
         <tr>
-            <td><?=$traducciones["pregunta4"]?></td>
-            <td><?=$r4?></td>
+            <td><?= $traducciones["pregunta3"] ?></td>
+            <td><?= $r3 ?></td>
         </tr>
         <tr>
-            <td><?=$traducciones["pregunta5"]?></td>
-            <td><?=$r5?></td>
+            <td><?= $traducciones["pregunta4"] ?></td>
+            <td><?= $r4 ?></td>
         </tr>
         <tr>
-            <td><?=$traducciones["pregunta6"]?></td>
-            <td><?=$r6?></td>
+            <td><?= $traducciones["pregunta5"] ?></td>
+            <td><?= $r5 ?></td>
         </tr>
         <tr>
-            <td><?=$traducciones["pregunta7"]?></td>
-            <td><?=$r7?></td>
+            <td><?= $traducciones["pregunta6"] ?></td>
+            <td><?= $r6 ?></td>
         </tr>
         <tr>
-            <td><?=$traducciones["pregunta8"]?></td>
-            <td><?=$r8?></td>
+            <td><?= $traducciones["pregunta7"] ?></td>
+            <td><?= $r7 ?></td>
         </tr>
         <tr>
-            <td><?=$traducciones["pregunta9"]?></td>
-            <td><?=$r9?></td>
+            <td><?= $traducciones["pregunta8"] ?></td>
+            <td><?= $r8 ?></td>
         </tr>
         <tr>
-            <td><?=$traducciones["pregunta10"]?></td>
-            <td><?=$r10?></td>
+            <td><?= $traducciones["pregunta9"] ?></td>
+            <td><?= $r9 ?></td>
         </tr>
         <tr>
-            <th><?=$traducciones["puntuacion"]?></th>
-            <th><?=$nota_final . "/" . $total?></th>
+            <td><?= $traducciones["pregunta10"] ?></td>
+            <td><?= $r10 ?></td>
+        </tr>
+        <tr>
+            <th><?= $traducciones["puntuacion"] ?></th>
+            <th><?= $nota_final . "/" . $total ?></th>
         </tr>
     </table>
 </body>
+
 </html>
