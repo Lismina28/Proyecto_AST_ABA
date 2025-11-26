@@ -159,6 +159,7 @@ $nota_final = $contador * 1;
             margin: 20px;
             text-align: center;
         }
+
         .header-bar {
             display: flex;
             justify-content: space-between;
@@ -239,7 +240,6 @@ $nota_final = $contador * 1;
             margin: 0 auto;
             border-radius: 5px;
         }
-
     </style>
 
 </head>
