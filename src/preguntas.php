@@ -1,26 +1,31 @@
 <?php
-$modo = "claro";
+    
 
-session_start();
+    session_start();
 
-if (!isset($_SESSION['usuario_logueado']) || $_SESSION['usuario_logueado'] !== true) {
-    header('Location: login.php'); // O a tu página de login
-    exit();
-}
+    if (!isset($_SESSION['usuario_logueado']) || $_SESSION['usuario_logueado'] !== true) {
+        header('Location: login.php'); // O a tu página de login
+        exit();
+    }
 
-$idioma = $_GET["idioma"] ?? $_SESSION["idioma"] ?? "es";
+    $idioma = $_GET["idioma"] ?? $_SESSION["idioma"] ?? "es";
 
-$fichero = "$idioma.php";
+    $fichero = "$idioma.php";
 
-$_SESSION["idioma"] = $idioma;
+    $_SESSION["idioma"] = $idioma;
 
-require $fichero; //es.php, en.php o ko.php
+    require $fichero; //es.php, en.php o ko.php
 
+    if(isset($_GET["theme"])){
+                $_SESSION["theme"] = $_GET["theme"];
+            }
+
+    $modo = $_SESSION["theme"] ?? "light";
 
 
 ?>
 
-<html data-bs-theme="<?php echo ($modo == "claro") ? "light" : "dark" ?>">
+<html data-bs-theme="<?php echo ($modo == "light") ? "light" : "dark" ?>">
 
 <head>
     <meta charset="UTF-8">
@@ -30,98 +35,154 @@ require $fichero; //es.php, en.php o ko.php
     <!-- Enlace para los estilos de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Estilos para los botones de las banderas */
-        .language-buttons {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-        }
+    /* Estilos para los botones de las banderas */
+    .language-buttons {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        gap: 10px;
+    }
 
-        .language-buttons img {
-            width: 40px;
-            /* Tamaño de las banderas */
-            height: auto;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: transform 0.2s;
-        }
+    .language-buttons img {
+        width: 40px;
+        /* Tamaño de las banderas */
+        height: auto;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: transform 0.2s;
+    }
 
-        .language-buttons img:hover {
-            transform: scale(1.1);
-            /* Efecto de hover */
-        }
+    .language-buttons img:hover {
+        transform: scale(1.1);
+        /* Efecto de hover */
+    }
 
-        body {
-            background: url('img/Fondo.jpg') no-repeat center center fixed;
-            background-size: cover;
-            font-family: 'Comic Sans MS';
-            margin: 20px;
-        }
+    body {
+        background: url('img/Fondo.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: 'Comic Sans MS';
+        margin: 20px;
+    }
 
-        h1 {
-            text-align: center;
-            padding: 10px;
-            background-color: rgba(246, 127, 196, 0.7);
-            max-width: 800px;
-            margin: 0 auto;
-            border-radius: 5px;
-        }
+    h1 {
+        text-align: center;
+        padding: 10px;
+        background-color: rgba(246, 127, 196, 0.7);
+        max-width: 800px;
+        margin: 0 auto;
+        border-radius: 5px;
+    }
 
-        .header-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 20px;
-        }
+    .header-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
 
-        .logo {
-            width: 50px;
-            height: 50px;
-            /* logo */
-        }
 
-        .nav-links a {
-            margin-right: 15px;
-            text-decoration: none;
-            color: #333;
-        }
+    .nav-links a {
+        margin-right: 15px;
+        text-decoration: none;
+        color: #333;
+    }
 
-        .language-buttons img {
-            width: 32px;
-            height: 32px;
-            margin-left: 10px;
-            cursor: pointer;
-        }
+    .language-buttons img {
+        width: 32px;
+        height: 32px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
 
-        .collapsible-content {
-            display: none;
-            margin-top: 10px;
-            padding-left: 20px;
-            border-left: 2px solid #eee;
-        }
+    .collapsible-content {
+        display: none;
+        margin-top: 10px;
+        padding-left: 20px;
+        border-left: 2px solid #eee;
+    }
 
-        .collapsible-title {
-            cursor: pointer;
-            font-weight: bold;
-        }
+    .collapsible-title {
+        cursor: pointer;
+        font-weight: bold;
+    }
 
-        .collapsible-title:hover {
-            text-decoration: underline;
-        }
+    .collapsible-title:hover {
+        text-decoration: underline;
+    }
 
-        form {
-            max-width: 800px;
-            margin: 30px auto 10px auto;
-            padding: 5px 15px;
-            border-radius: 5px;
-            background-color: rgba(251, 190, 225, 0.7);
-            color: #333;
-        }
-        
+    form {
+        max-width: 800px;
+        margin: 30px auto 10px auto;
+        padding: 5px 15px;
+        border-radius: 5px;
+        background-color: rgba(251, 190, 225, 0.7);
+        color: #333;
+    }
+
+
+    /* Estilos para los botones del modo claro/oscuro */
+
+    .theme-buttons {
+        position: absolute;
+        top: 20px;
+        left: 80px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .theme-buttons img {
+        width: 40px;
+        /* Tamaño de las banderas */
+        height: auto;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: transform 0.2s;
+    }
+
+    .theme-buttons img:hover {
+        transform: scale(1.1);
+        /* Efecto de hover */
+    }
+
+    /* fondo para modo claro */
+    html[data-bs-theme="light"] body {
+        background-image: url("img/Fondo.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* fondo para modo oscuro */
+    html[data-bs-theme="dark"] body {
+        background-image: url("img/Fondo2.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+
+
+    .logo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .logo-area img {
+        width: 50px;
+        /* Tamaño de las banderas */
+        height: auto;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: transform 0.2s;
+    }
+
+    .logo-area img:hover {
+        transform: scale(1.1);
+        /* Efecto de hover */
+    }
     </style>
 </head>
 
@@ -132,18 +193,35 @@ require $fichero; //es.php, en.php o ko.php
             <a href="inicio.php"><img src="img/logo2.png" alt="Logo de la Web" class="logo"></a>
         </div>
         <div class="nav-links">
-            <a href="inicio.php" class="btn btn-sm" style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["link_inicio"] ?></a>
-            <a href="preguntas.php" class="btn btn-sm" style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["link_cuestionario"] ?></a>
+            <a href="inicio.php" class="btn btn-sm"
+                style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["link_inicio"] ?></a>
+            <a href="preguntas.php" class="btn btn-sm"
+                style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["link_cuestionario"] ?></a>
         </div>
 
         <!-- Botones de idioma en la esquina superior derecha usando iconos de Flaticon -->
         <div class="right-controls">
             <div class="language-buttons">
-                <a href="?idioma=es"><img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="Español" title="Español"></a>
-                <a href="?idioma=en"><img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="English" title="English"></a>
-                <a href="?idioma=ko"><img src="https://cdn-icons-png.flaticon.com/128/5111/5111586.png" alt="Coreano" title="Coreano"></a>
-                <a href="login.php" class="btn btn-sm" style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["logout"] ?></a>
+                <a href="?idioma=es"><img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="Español"
+                        title="Español"></a>
+                <a href="?idioma=en"><img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="English"
+                        title="English"></a>
+                <a href="?idioma=ko"><img src="https://cdn-icons-png.flaticon.com/128/5111/5111586.png" alt="Coreano"
+                        title="Coreano"></a>
+                <a href="login.php" class="btn btn-sm"
+                    style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["logout"] ?></a>
             </div>
+        </div>
+
+        <div class="theme-buttons">
+            <!-- Icono de modo oscuro (luna) -->
+            <a href="?theme=dark"><img src="https://cdn-icons-png.flaticon.com/128/3594/3594375.png" alt="Oscuro"
+                    title="Oscuro"></a>
+            <!-- Icono de modo claro (sol) -->
+            <a href="?theme=light"><img src="https://cdn-icons-png.flaticon.com/128/2698/2698240.png" alt="Claro"
+                    title="Claro"></a>
+
+
         </div>
     </div>
     <h1><?= $traducciones["cuestionario"] ?></h1>
@@ -229,7 +307,8 @@ require $fichero; //es.php, en.php o ko.php
                 <input type="text" name="pregunta10">
 
                 <br><br>
-                <button type="submit" class="btn btn-sm" style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["Enviar"] ?></button>
+                <button type="submit" class="btn btn-sm"
+                    style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["Enviar"] ?></button>
 
             </form>
         </div>

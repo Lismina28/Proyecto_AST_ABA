@@ -77,7 +77,22 @@
         margin: 0;
         flex-direction: column;
         position: relative;
+        font-family: "Comic Sans MS";
         /* Esto permitirá que los botones estén posicionados en la esquina */
+    }
+
+    /* fondo para modo claro */
+    html[data-bs-theme="light"] body {
+        background-image: url("img/Fondo.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* fondo para modo oscuro */
+    html[data-bs-theme="dark"] body {
+        background-image: url("img/Fondo2.jpg");
+        background-size: cover;
+        background-position: center;
     }
 
     h1 {
@@ -107,7 +122,7 @@
     .login-form button {
         width: 100%;
         padding: 10px;
-        background-color: #007bff;
+        background-color: rgba(246, 127, 196, 1);
         color: white;
         border: none;
         border-radius: 4px;
@@ -115,7 +130,7 @@
     }
 
     .login-form button:hover {
-        background-color: #0056b3;
+        background-color: rgba(246, 127, 196, 1);
     }
 
     .login-form .form-group {
@@ -123,7 +138,7 @@
     }
 
     .login-form .text-center a {
-        color: #007bff;
+        color: rgba(246, 127, 196, 1);
         text-decoration: none;
     }
 
@@ -183,7 +198,7 @@
 <body>
     <!-- Botones de idioma en la esquina superior derecha usando iconos de Flaticon -->
     <div class="language-buttons">
-         <!-- Bandera de Reino Unido (SVG de Flaticon) -->
+        <!-- Bandera de Reino Unido (SVG de Flaticon) -->
         <a href="?idioma=es"><img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="Español"
                 title="Español"></a>
         <!-- Bandera de España (SVG de Flaticon) -->

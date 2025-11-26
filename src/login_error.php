@@ -39,17 +39,35 @@
         margin: 0;
         flex-direction: column;
         position: relative;
+        font-family: "Comic Sans MS";
+        color: #000 !important;
         /* Esto permitirá que los botones estén posicionados en la esquina */
     }
+
+    /* fondo para modo claro */
+    html[data-bs-theme="light"] body {
+        background-image: url("img/Fondo.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* fondo para modo oscuro */
+    html[data-bs-theme="dark"] body {
+        background-image: url("img/Fondo2.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+
 
     h1 {
         text-align: center;
         font-size: 2.5rem;
         margin-bottom: 30px;
+        color: #000 !important;
     }
 
     button {
-        background-color: #007bff;
+        background-color: rgba(246, 127, 196, 1);
         color: white;
         padding: 10px 20px;
         border: none;

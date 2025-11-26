@@ -1,5 +1,4 @@
 <?php
-$modo = "claro";
 
 session_start();
 
@@ -22,22 +21,7 @@ for ($i = 1; $i <= 10; $i++) {
 
 $pregunta6 = $_POST["pregunta6"] ?? []; // checkbox
 
-// Si alguna pregunta está sin responder, redirigir al formulario
-for ($i = 1; $i <= 10; $i++) {
-    if ($i != 6 && empty($preguntas[$i])) {
-        echo "<h2 style='color:red;'>{$traducciones["error"]}</h2>";
-        echo "<a href='preguntas.php' class='btn btn-sm' 
-        style='background:#ff6fb1; color:white; position:none;'>{$traducciones["volver"]}</a>";
-        exit;
-    }
-}
 
-// Pregunta 6, si no hay ninguna opción marcada, redirigir al formulario
-if (empty($pregunta6)) {
-    echo "<h2 style='color:red;'>Error: {$traducciones["marcar_opcion"]}</h2>";
-    echo "<a href='preguntas.php'>{$traducciones["volver"]}</a>";
-    exit;
-}
 
 // Corrección
 $contador = 0;
@@ -115,11 +99,16 @@ if (strtolower(trim($preguntas[10])) == "eclise") {
     $r10 = $traducciones["incorrecto"];
 }
 
+if(isset($_GET["theme"])){
+            $_SESSION["theme"] = $_GET["theme"];
+        }
+
+$modo = $_SESSION["theme"] ?? "light";
 
 $nota_final = $contador * 1;
 ?>
 <!-- Mostrar resultado -->
-<html data-bs-theme="<?php echo ($modo == "claro") ? "light" : "dark" ?>">
+<html data-bs-theme="<?php echo ($modo == "light") ? "light" : "dark" ?>">
 
 <head>
 
@@ -130,116 +119,154 @@ $nota_final = $contador * 1;
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        /* Estilos para los botones de las banderas */
-        .language-buttons {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
+    /* Estilos para los botones de las banderas */
+    .language-buttons {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
 
-        .language-buttons img {
-            width: 40px;
-            /* Tamaño de las banderas */
-            height: auto;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: transform 0.2s;
-        }
+    .language-buttons img {
+        width: 40px;
+        /* Tamaño de las banderas */
+        height: auto;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: transform 0.2s;
+    }
 
-        .language-buttons img:hover {
-            transform: scale(1.1);
-            /* Efecto de hover */
-        }
+    .language-buttons img:hover {
+        transform: scale(1.1);
+        /* Efecto de hover */
+    }
 
-        /* Estilos CSS básicos para el layout y los botones */
-        body {
-            background: url('img/Fondo.jpg') no-repeat center center fixed;
-            background-size: cover;
-            font-family: 'Comic Sans MS';
-            margin: 20px;
-            text-align: center;
-        }
+    /* Estilos CSS básicos para el layout y los botones */
+    body {
+        background: url('img/Fondo.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: 'Comic Sans MS';
+        margin: 20px;
+        text-align: center;
+    }
 
-        .header-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 20px;
-        }
+    .header-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
 
-        .right-controls {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+    .right-controls {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
 
-        .logo {
-            width: 50px;
-            height: 50px;
-            /* logo */
-        }
+    .logo {
+        width: 50px;
+        height: 50px;
+        /* logo */
+    }
 
-        .nav-links a {
-            margin-right: 0;
-            text-decoration: none;
-            color: #333;
-        }
+    .nav-links a {
+        margin-right: 0;
+        text-decoration: none;
+        color: #333;
+    }
 
-        .collapsible-content {
-            display: none;
-            margin-top: 10px;
-            padding-left: 20px;
-            border-left: 2px solid #eee;
-        }
+    .collapsible-content {
+        display: none;
+        margin-top: 10px;
+        padding-left: 20px;
+        border-left: 2px solid #eee;
+    }
 
-        .collapsible-title {
-            cursor: pointer;
-            font-weight: bold;
-        }
+    .collapsible-title {
+        cursor: pointer;
+        font-weight: bold;
+    }
 
-        .collapsible-title:hover {
-            text-decoration: underline;
-        }
+    .collapsible-title:hover {
+        text-decoration: underline;
+    }
 
-        table {
-            width: 40%;
-            border-collapse: collapse;
-            margin: 20px auto;
-            border-radius: 5px;
-            overflow: hidden;
-        }
+    table {
+        width: 40%;
+        border-collapse: collapse;
+        margin: 20px auto;
+        border-radius: 5px;
+        overflow: hidden;
+    }
 
-        table,
-        th,
-        td {
+    table,
+    th,
+    td {
+        color: #000 !important;
+        padding: 10px;
+        text-align: center;
+    }
 
-            padding: 10px;
-            text-align: center;
-        }
+    th {
+        background-color: rgba(246, 127, 196, 0.8);
+        text-align: left;
+        padding: 8px;
 
-        th {
-            background-color: rgba(246, 127, 196, 0.8);
-            text-align: left;
-            padding: 8px;
+    }
 
-        }
+    td {
+        background-color: rgba(251, 190, 225, 0.7);
+        padding: 8px;
 
-        td {
-            background-color: rgba(251, 190, 225, 0.7);
-            padding: 8px;
+    }
 
-        }
+    h1 {
+        text-align: center;
+        padding: 10px;
+        background-color: rgba(246, 127, 196, 0.7);
+        max-width: 800px;
+        margin: 0 auto;
+        border-radius: 5px;
+    }
 
-        h1 {
-            text-align: center;
-            padding: 10px;
-            background-color: rgba(246, 127, 196, 0.7);
-            max-width: 800px;
-            margin: 0 auto;
-            border-radius: 5px;
-        }
+    /* Estilos para los botones del modo claro/oscuro */
+
+    .theme-buttons {
+        position: absolute;
+        top: 20px;
+        left: 80px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .theme-buttons img {
+        width: 40px;
+        /* Tamaño de las banderas */
+        height: auto;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: transform 0.2s;
+    }
+
+    .theme-buttons img:hover {
+        transform: scale(1.1);
+        /* Efecto de hover */
+    }
+
+    /* fondo para modo claro */
+    html[data-bs-theme="light"] body {
+        background-image: url("img/Fondo.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* fondo para modo oscuro */
+    html[data-bs-theme="dark"] body {
+        background-image: url("img/Fondo2.jpg");
+        background-size: cover;
+        background-position: center;
+    }
     </style>
 
 </head>
@@ -251,19 +278,35 @@ $nota_final = $contador * 1;
             <a href="inicio.php"><img src="img/logo2.png" alt="Logo de la Web" class="logo"></a>
         </div>
         <div class="nav-links">
-            <a href="inicio.php" class="btn btn-sm" style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["link_inicio"] ?></a>
-            <a href="preguntas.php" class="btn btn-sm" style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["link_cuestionario"] ?></a>
+            <a href="inicio.php" class="btn btn-sm"
+                style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["link_inicio"] ?></a>
+            <a href="preguntas.php" class="btn btn-sm"
+                style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["link_cuestionario"] ?></a>
         </div>
         <div class="language-buttons">
-            <a href="?idioma=es"><img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="Español" title="Español"></a>
-            <a href="?idioma=en"><img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="English" title="English"></a>
-            <a href="?idioma=ko"><img src="https://cdn-icons-png.flaticon.com/128/5111/5111586.png" alt="Coreano" title="Coreano"></a>
-            <a href="login.php" class="btn btn-sm" style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["logout"] ?></a>
+            <a href="?idioma=es"><img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="Español"
+                    title="Español"></a>
+            <a href="?idioma=en"><img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="English"
+                    title="English"></a>
+            <a href="?idioma=ko"><img src="https://cdn-icons-png.flaticon.com/128/5111/5111586.png" alt="Coreano"
+                    title="Coreano"></a>
+            <a href="login.php" class="btn btn-sm"
+                style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["logout"] ?></a>
         </div>
     </div>
 
+     <div class="theme-buttons">
+        <!-- Icono de modo oscuro (luna) -->
+        <a href="?theme=dark"><img src="https://cdn-icons-png.flaticon.com/128/3594/3594375.png" alt="Oscuro"
+                title="Oscuro"></a>
+        <!-- Icono de modo claro (sol) -->
+        <a href="?theme=light"><img src="https://cdn-icons-png.flaticon.com/128/2698/2698240.png" alt="Claro"
+                title="Claro"></a>
+
+    </div>
+
     <h1><?= $traducciones["resultados"] ?></h1>
-    <table cellpadding='8'>
+    <table cellpadding='8' >
         <tr>
             <th><?= $traducciones["preguntas"] ?></th>
             <th><?= $traducciones["resultado"] ?></th>
