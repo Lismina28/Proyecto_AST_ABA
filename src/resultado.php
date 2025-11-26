@@ -1,16 +1,20 @@
 <?php
+$modo = "claro";
 
 session_start();
 
-$idioma = $_GET["idioma"] ?? $_SESSION["idioma"];
+if (!isset($_SESSION['usuario_logueado']) || $_SESSION['usuario_logueado'] !== true) {
+    header('Location: login.php'); // O a tu página de login
+    exit();
+}
+
+$idioma = $_GET["idioma"] ?? $_SESSION["idioma"] ?? "es";
 
 $fichero = "$idioma.php";
 
 $_SESSION["idioma"] = $idioma;
 
 require $fichero; //es.php, en.php o ko.php
-
-$modo = "claro";
 
 for ($i = 1; $i <= 10; $i++) {
     $preguntas[$i] = $_POST["pregunta$i"] ?? "";
@@ -22,7 +26,8 @@ $pregunta6 = $_POST["pregunta6"] ?? []; // checkbox
 for ($i = 1; $i <= 10; $i++) {
     if ($i != 6 && empty($preguntas[$i])) {
         echo "<h2 style='color:red;'>{$traducciones["error"]}</h2>";
-        echo "<a href='preguntas.php'>{$traducciones["volver"]}</a>";
+        echo "<a href='preguntas.php' class='btn btn-sm' 
+        style='background:#ff6fb1; color:white; position:none;'>{$traducciones["volver"]}</a>";
         exit;
     }
 }
@@ -112,57 +117,183 @@ if (strtolower(trim($preguntas[10])) == "eclise") {
 
 
 $nota_final = $contador * 1;
+?>
+<!-- Mostrar resultado -->
+<html data-bs-theme="<?php echo ($modo == "claro") ? "light" : "dark" ?>">
+    <head>
 
-// Mostrar resultado
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $traducciones["titulo_inicio"] ?></title>
+    <link rel="icon" type="image/png" href="img/logo2.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-echo "<h1>{$traducciones["resultados"]}</h1>";
-echo "<table border='1' cellpadding='8'>
+ <style>
+          /* Estilos para los botones de las banderas */
+        .language-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .language-buttons img {
+            width: 40px;
+            /* Tamaño de las banderas */
+            height: auto;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: transform 0.2s;
+        }
+
+        .language-buttons img:hover {
+            transform: scale(1.1);
+            /* Efecto de hover */
+        }
+
+        /* Estilos CSS básicos para el layout y los botones */
+        body {
+           background: url('img/Fondo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Comic Sans MS';
+            margin: 20px;
+            text-align: center; 
+        }
+
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        .right-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            /* logo */
+        }
+
+        .nav-links a {
+            margin-right: 0;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .collapsible-content {
+            display: none;
+            margin-top: 10px;
+            padding-left: 20px;
+            border-left: 2px solid #eee;
+        }
+
+        .collapsible-title {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .collapsible-title:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width:40%;
+            border-collapse: collapse;
+            margin: 150px auto;
+            
+        }
+
+        table, th, td {
+           
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        th {
+            background-color: #f67fc4ff;
+            text-align: left;
+            padding: 8px;
+        }
+        td {
+            background-color: #fbbee1ff;
+            padding: 8px;
+        }
+    </style>
+
+    </head>
+    <body>
+   <div class="header-bar">
+        <div class="logo-area">
+            <a href="inicio.php"><img src="img/logo2.png" alt="Logo de la Web" class="logo"></a>
+        </div>
+        <div class="nav-links">
+            <a href="inicio.php" class="btn btn-sm" style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["link_inicio"] ?></a>
+            <a href="preguntas.php" class="btn btn-sm" style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["link_cuestionario"] ?></a>
+        </div>
+        <div class="language-buttons">
+            <a href="?idioma=es"><img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="Español" title="Español"></a>
+            <a href="?idioma=en"><img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="English" title="English"></a>
+            <a href="?idioma=ko"><img src="https://cdn-icons-png.flaticon.com/128/5111/5111586.png" alt="Coreano" title="Coreano"></a>
+            <a href="login.php" class="btn btn-sm" style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["logout"] ?></a>
+        </div>
+    </div>
+
+<h1><?=$traducciones["resultados"]?></h1>
+<table cellpadding='8'>
         <tr>
-            <th>{$traducciones["preguntas"]}</th>
-            <th>{$traducciones["resultado"]}</th>
+            <th><?=$traducciones["preguntas"]?></th>
+            <th><?=$traducciones["resultado"]?></th>
         </tr>
          <tr>
-            <td>{$traducciones["pregunta1"]}</td>
-            <td>$r1</td>
+            <td><?=$traducciones["pregunta1"]?></td>
+            <td><?=$r1?></td>
         </tr>
         <tr>
-            <td>{$traducciones["pregunta2"]}</td>
-            <td>$r2</td>
+            <td><?=$traducciones["pregunta2"]?></td>
+            <td><?=$r2?></td>
         </tr>
         <tr>
-            <td>{$traducciones["pregunta3"]}</td>
-            <td>$r3</td>
+            <td><?=$traducciones["pregunta3"]?></td>
+            <td><?=$r3?></td>
         </tr>
         <tr>
-            <td>{$traducciones["pregunta4"]}</td>
-            <td>$r4</td>
+            <td><?=$traducciones["pregunta4"]?></td>
+            <td><?=$r4?></td>
         </tr>
         <tr>
-            <td>{$traducciones["pregunta5"]}</td>
-            <td>$r5</td>
+            <td><?=$traducciones["pregunta5"]?></td>
+            <td><?=$r5?></td>
         </tr>
         <tr>
-            <td>{$traducciones["pregunta6"]}</td>
-            <td>$r6</td>
+            <td><?=$traducciones["pregunta6"]?></td>
+            <td><?=$r6?></td>
         </tr>
         <tr>
-            <td>{$traducciones["pregunta7"]}</td>
-            <td>$r7</td>
+            <td><?=$traducciones["pregunta7"]?></td>
+            <td><?=$r7?></td>
         </tr>
         <tr>
-            <td>{$traducciones["pregunta8"]}</td>
-            <td>$r8</td>
+            <td><?=$traducciones["pregunta8"]?></td>
+            <td><?=$r8?></td>
         </tr>
         <tr>
-            <td>{$traducciones["pregunta9"]}</td>
-            <td>$r9</td>
+            <td><?=$traducciones["pregunta9"]?></td>
+            <td><?=$r9?></td>
         </tr>
         <tr>
-            <td>{$traducciones["pregunta10"]}</td>
-            <td>$r10</td>
+            <td><?=$traducciones["pregunta10"]?></td>
+            <td><?=$r10?></td>
         </tr>
         <tr>
-            <th>{$traducciones["puntuacion"]}</th>
-            <th>$nota_final / $total</th>
+            <th><?=$traducciones["puntuacion"]?></th>
+            <th><?=$nota_final . "/" . $total?></th>
         </tr>
-    </table>";
+    </table>
+</body>
+</html>

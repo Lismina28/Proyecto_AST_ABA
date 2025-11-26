@@ -54,7 +54,7 @@ require $fichero; //es.php, en.php o ko.php
         }
 
         body {
-            background-image: url('img/Fondo.jpg');
+            background: url('img/Fondo.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Comic Sans MS';
             margin: 20px;
@@ -210,7 +210,7 @@ require $fichero; //es.php, en.php o ko.php
                 <input type="text" name="pregunta10">
 
                 <br><br>
-                <button type="submit"><?= $traducciones["Enviar"] ?></button>
+                <button type="submit" class="btn btn-sm" style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["Enviar"] ?></button>
 
             </form>
         </div>

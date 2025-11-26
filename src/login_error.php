@@ -25,11 +25,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="icon" type="image/png" href="img/logo2.png">
     <!-- Enlace para los estilos de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
     body {
+        
         display: flex;
         justify-content: center;
         align-items: center;
@@ -132,7 +134,7 @@
 
     <h1><?= $traducciones["title_error"] ?></h1>
     <p><?= $traducciones["error_msg"]?></p>
-    <button onclick="window.location.href=login.php"><?= $traducciones["return_login"]?>
+    <button onclick="window.location.href='login.php'"><?= $traducciones["return_login"]?>
 
     </button>
 

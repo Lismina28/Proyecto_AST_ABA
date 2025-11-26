@@ -46,7 +46,7 @@ require "$idioma.php";
 
         /* Estilos CSS básicos para el layout y los botones */
         body {
-            background-image: url('img/Fondo.jpg');
+            background: url('img/Fondo.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Comic Sans MS';
             margin: 20px;
@@ -60,7 +60,9 @@ require "$idioma.php";
             border-bottom: 1px solid #ccc;
             margin-bottom: 20px;
         }
-
+        h1 {
+            text-align: center;
+        }
         .right-controls {
             display: flex;
             align-items: center;
@@ -107,6 +109,7 @@ require "$idioma.php";
             <a href="inicio.php" class="btn btn-sm" style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["link_inicio"] ?></a>
             <a href="preguntas.php" class="btn btn-sm" style="background:#ff6fb1; color:white; border:none;"><?= $traducciones["link_cuestionario"] ?></a>
         </div>
+        
         <div class="language-buttons">
             <a href="?idioma=es"><img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="Español" title="Español"></a>
             <a href="?idioma=en"><img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="English" title="English"></a>
